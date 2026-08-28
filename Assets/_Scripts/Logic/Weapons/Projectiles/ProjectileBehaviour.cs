@@ -27,8 +27,13 @@ public class ProjectileBehaviour : MonoBehaviour
         // Fire the projectile forward along its local X axis
         _rb.linearVelocity = transform.right * _speed;
 
-        // TEMPORARY auto-cleanup to prevent memory leaks until PoolManager is built
-        Destroy(gameObject, 3f);
+        // Return to the pool after 3 seconds
+        Invoke(nameof(Deactivate), 3f);
+    }
+
+    private void Deactivate()
+    {
+        PoolManager.Instance.ReturnToPool(gameObject);
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
