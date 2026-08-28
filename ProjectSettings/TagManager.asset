@@ -47,6 +47,9 @@ TagManager:
   - name: Character
     uniqueID: 1497452063
     locked: 0
+  - name: UI_World
+    uniqueID: 3143880115
+    locked: 0
   m_RenderingLayers:
   - Default
   m_MigratedRenderPipelines: []
