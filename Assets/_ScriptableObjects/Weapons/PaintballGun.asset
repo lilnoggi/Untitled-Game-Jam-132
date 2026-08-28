@@ -1,0 +1,22 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c512728ae8d4df14898d19a223eb5b8c, type: 3}
+  m_Name: PaintballGun
+  m_EditorClassIdentifier: Assembly-CSharp::WeaponData
+  _type: 1
+  _weaponName: Paintball Gun
+  _fireRate: 1
+  _damage: 1
+  _spreadAngle: 1
+  _bulletSpeed: 1
+  _projectilePrefab: {fileID: 6911710358772585550, guid: cffa7fa9aac81554787ca0988d7e4784, type: 3}
+  _weaponPrefab: {fileID: 5496697969915906526, guid: ff02a1450b4d09147ada7a1920db7847, type: 3}

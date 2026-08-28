@@ -123,7 +123,7 @@ public partial class @InputSystem_Actions: IInputActionCollection2, IDisposable
                     ""priority"": 0
                 },
                 {
-                    ""name"": ""CycleLeft"",
+                    ""name"": ""CyclePrevious"",
                     ""type"": ""Button"",
                     ""id"": ""2776c80d-3c14-4091-8c56-d04ced07a2b0"",
                     ""expectedControlType"": """",
@@ -133,7 +133,7 @@ public partial class @InputSystem_Actions: IInputActionCollection2, IDisposable
                     ""priority"": 0
                 },
                 {
-                    ""name"": ""CycleRight"",
+                    ""name"": ""CycleNext"",
                     ""type"": ""Button"",
                     ""id"": ""b7230bb6-fc9b-4f52-8b25-f5e19cb2c2ba"",
                     ""expectedControlType"": """",
@@ -337,7 +337,7 @@ public partial class @InputSystem_Actions: IInputActionCollection2, IDisposable
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": ""Keyboard&Mouse"",
-                    ""action"": ""CycleRight"",
+                    ""action"": ""CycleNext"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 },
@@ -348,7 +348,7 @@ public partial class @InputSystem_Actions: IInputActionCollection2, IDisposable
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": ""Gamepad"",
-                    ""action"": ""CycleRight"",
+                    ""action"": ""CycleNext"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 },
@@ -381,7 +381,7 @@ public partial class @InputSystem_Actions: IInputActionCollection2, IDisposable
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": ""Keyboard&Mouse"",
-                    ""action"": ""CycleLeft"",
+                    ""action"": ""CyclePrevious"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 },
@@ -392,7 +392,7 @@ public partial class @InputSystem_Actions: IInputActionCollection2, IDisposable
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": ""Gamepad"",
-                    ""action"": ""CycleLeft"",
+                    ""action"": ""CyclePrevious"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 }
@@ -993,8 +993,8 @@ public partial class @InputSystem_Actions: IInputActionCollection2, IDisposable
         m_Player_Move = m_Player.FindAction("Move", throwIfNotFound: true);
         m_Player_Look = m_Player.FindAction("Look", throwIfNotFound: true);
         m_Player_Attack = m_Player.FindAction("Attack", throwIfNotFound: true);
-        m_Player_CycleLeft = m_Player.FindAction("CycleLeft", throwIfNotFound: true);
-        m_Player_CycleRight = m_Player.FindAction("CycleRight", throwIfNotFound: true);
+        m_Player_CyclePrevious = m_Player.FindAction("CyclePrevious", throwIfNotFound: true);
+        m_Player_CycleNext = m_Player.FindAction("CycleNext", throwIfNotFound: true);
         m_Player_Dash = m_Player.FindAction("Dash", throwIfNotFound: true);
         // UI
         m_UI = asset.FindActionMap("UI", throwIfNotFound: true);
@@ -1092,8 +1092,8 @@ public partial class @InputSystem_Actions: IInputActionCollection2, IDisposable
     private readonly InputAction m_Player_Move;
     private readonly InputAction m_Player_Look;
     private readonly InputAction m_Player_Attack;
-    private readonly InputAction m_Player_CycleLeft;
-    private readonly InputAction m_Player_CycleRight;
+    private readonly InputAction m_Player_CyclePrevious;
+    private readonly InputAction m_Player_CycleNext;
     private readonly InputAction m_Player_Dash;
     /// <summary>
     /// Provides access to input actions defined in input action map "Player".
@@ -1119,13 +1119,13 @@ public partial class @InputSystem_Actions: IInputActionCollection2, IDisposable
         /// </summary>
         public InputAction @Attack => m_Wrapper.m_Player_Attack;
         /// <summary>
-        /// Provides access to the underlying input action "Player/CycleLeft".
+        /// Provides access to the underlying input action "Player/CyclePrevious".
         /// </summary>
-        public InputAction @CycleLeft => m_Wrapper.m_Player_CycleLeft;
+        public InputAction @CyclePrevious => m_Wrapper.m_Player_CyclePrevious;
         /// <summary>
-        /// Provides access to the underlying input action "Player/CycleRight".
+        /// Provides access to the underlying input action "Player/CycleNext".
         /// </summary>
-        public InputAction @CycleRight => m_Wrapper.m_Player_CycleRight;
+        public InputAction @CycleNext => m_Wrapper.m_Player_CycleNext;
         /// <summary>
         /// Provides access to the underlying input action "Player/Dash".
         /// </summary>
@@ -1165,12 +1165,12 @@ public partial class @InputSystem_Actions: IInputActionCollection2, IDisposable
             @Attack.started += instance.OnAttack;
             @Attack.performed += instance.OnAttack;
             @Attack.canceled += instance.OnAttack;
-            @CycleLeft.started += instance.OnCycleLeft;
-            @CycleLeft.performed += instance.OnCycleLeft;
-            @CycleLeft.canceled += instance.OnCycleLeft;
-            @CycleRight.started += instance.OnCycleRight;
-            @CycleRight.performed += instance.OnCycleRight;
-            @CycleRight.canceled += instance.OnCycleRight;
+            @CyclePrevious.started += instance.OnCyclePrevious;
+            @CyclePrevious.performed += instance.OnCyclePrevious;
+            @CyclePrevious.canceled += instance.OnCyclePrevious;
+            @CycleNext.started += instance.OnCycleNext;
+            @CycleNext.performed += instance.OnCycleNext;
+            @CycleNext.canceled += instance.OnCycleNext;
             @Dash.started += instance.OnDash;
             @Dash.performed += instance.OnDash;
             @Dash.canceled += instance.OnDash;
@@ -1194,12 +1194,12 @@ public partial class @InputSystem_Actions: IInputActionCollection2, IDisposable
             @Attack.started -= instance.OnAttack;
             @Attack.performed -= instance.OnAttack;
             @Attack.canceled -= instance.OnAttack;
-            @CycleLeft.started -= instance.OnCycleLeft;
-            @CycleLeft.performed -= instance.OnCycleLeft;
-            @CycleLeft.canceled -= instance.OnCycleLeft;
-            @CycleRight.started -= instance.OnCycleRight;
-            @CycleRight.performed -= instance.OnCycleRight;
-            @CycleRight.canceled -= instance.OnCycleRight;
+            @CyclePrevious.started -= instance.OnCyclePrevious;
+            @CyclePrevious.performed -= instance.OnCyclePrevious;
+            @CyclePrevious.canceled -= instance.OnCyclePrevious;
+            @CycleNext.started -= instance.OnCycleNext;
+            @CycleNext.performed -= instance.OnCycleNext;
+            @CycleNext.canceled -= instance.OnCycleNext;
             @Dash.started -= instance.OnDash;
             @Dash.performed -= instance.OnDash;
             @Dash.canceled -= instance.OnDash;
@@ -1525,19 +1525,19 @@ public partial class @InputSystem_Actions: IInputActionCollection2, IDisposable
         /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
         void OnAttack(InputAction.CallbackContext context);
         /// <summary>
-        /// Method invoked when associated input action "CycleLeft" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.
+        /// Method invoked when associated input action "CyclePrevious" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.
         /// </summary>
         /// <seealso cref="UnityEngine.InputSystem.InputAction.started" />
         /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
         /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
-        void OnCycleLeft(InputAction.CallbackContext context);
+        void OnCyclePrevious(InputAction.CallbackContext context);
         /// <summary>
-        /// Method invoked when associated input action "CycleRight" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.
+        /// Method invoked when associated input action "CycleNext" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.
         /// </summary>
         /// <seealso cref="UnityEngine.InputSystem.InputAction.started" />
         /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
         /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
-        void OnCycleRight(InputAction.CallbackContext context);
+        void OnCycleNext(InputAction.CallbackContext context);
         /// <summary>
         /// Method invoked when associated input action "Dash" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.
         /// </summary>

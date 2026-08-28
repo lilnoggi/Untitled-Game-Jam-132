@@ -37,7 +37,7 @@
                     "priority": 0
                 },
                 {
-                    "name": "CycleLeft",
+                    "name": "CyclePrevious",
                     "type": "Button",
                     "id": "2776c80d-3c14-4091-8c56-d04ced07a2b0",
                     "expectedControlType": "",
@@ -47,7 +47,7 @@
                     "priority": 0
                 },
                 {
-                    "name": "CycleRight",
+                    "name": "CycleNext",
                     "type": "Button",
                     "id": "b7230bb6-fc9b-4f52-8b25-f5e19cb2c2ba",
                     "expectedControlType": "",
@@ -251,7 +251,7 @@
                     "interactions": "",
                     "processors": "",
                     "groups": "Keyboard&Mouse",
-                    "action": "CycleRight",
+                    "action": "CycleNext",
                     "isComposite": false,
                     "isPartOfComposite": false
                 },
@@ -262,7 +262,7 @@
                     "interactions": "",
                     "processors": "",
                     "groups": "Gamepad",
-                    "action": "CycleRight",
+                    "action": "CycleNext",
                     "isComposite": false,
                     "isPartOfComposite": false
                 },
@@ -295,7 +295,7 @@
                     "interactions": "",
                     "processors": "",
                     "groups": "Keyboard&Mouse",
-                    "action": "CycleLeft",
+                    "action": "CyclePrevious",
                     "isComposite": false,
                     "isPartOfComposite": false
                 },
@@ -306,7 +306,7 @@
                     "interactions": "",
                     "processors": "",
                     "groups": "Gamepad",
-                    "action": "CycleLeft",
+                    "action": "CyclePrevious",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }
