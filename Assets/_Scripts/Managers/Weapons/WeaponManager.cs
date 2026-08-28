@@ -133,6 +133,10 @@ public class WeaponManager : MonoBehaviour
 
         if (firePoint != null && data.ProjectilePrefab != null)
         {
+            // Calculate a random spread angle based on the weapon data
+            float randomSpread = Random.Range(-data.SpreadAngle, data.SpreadAngle);
+            Quaternion spreadRotation = firePoint.rotation * Quaternion.Euler(0, 0, randomSpread);
+            
             // Get a bullet from the pool manager
             GameObject bullet = PoolManager.Instance.SpawnFromPool(data.ProjectilePrefab, firePoint.position, firePoint.rotation);
 
