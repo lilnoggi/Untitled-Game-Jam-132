@@ -14,9 +14,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::WeaponData
   _type: 2
   _weaponName: Carrot Launcher
-  _fireRate: 1
-  _damage: 1
-  _spreadAngle: 1
-  _bulletSpeed: 1
+  _fireRate: 1.5
+  _damage: 100
+  _spreadAngle: 0
+  _bulletSpeed: 8
   _projectilePrefab: {fileID: 602678367910574953, guid: 10364541b84d2b34888bcbd3b0dbdb54, type: 3}
   _weaponPrefab: {fileID: 3991635615174735521, guid: be95387f43153524ea9d418c47767f95, type: 3}
