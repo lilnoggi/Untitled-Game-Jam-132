@@ -1,10 +1,16 @@
 **What does this PR do?**
-- (Briefly describe the changes you have made)
+
+* Adds battle theme and weapon sounds
 
 **Which MVP feature does this resolve?**
-- (GDD section / Asset Checklist)
+
+* Combat Track
+* Squish SFX
+* Heavy Thud SFX
 
 **Reviewer Checklist:**
-- [ ] No missing script references in the Inspector.
-- [ ] Meta files have been included.
-- [ ] Scene runs without compiler errors.
+
+* \[x] No missing script references in the Inspector.
+* \[x] Meta files have been included.
+* \[x] Scene runs without compiler errors.
+
