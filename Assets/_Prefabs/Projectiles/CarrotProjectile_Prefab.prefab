@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 8312253224698942848}
   - component: {fileID: 8342319386944953775}
   - component: {fileID: 8399926726759205961}
+  - component: {fileID: -9087181676853877446}
   - component: {fileID: 4918555212020589774}
   m_Layer: 7
   m_Name: CarrotProjectile_Prefab
@@ -108,6 +109,37 @@ BoxCollider2D:
   m_AutoTiling: 0
   m_Size: {x: 1.1, y: 0.4}
   m_EdgeRadius: 0
+--- !u!114 &-9087181676853877446
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 602678367910574953}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9a6610d2e704f1648819acc8d7460285, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: FMODUnity::FMODUnity.StudioEventEmitter
+  CollisionTag: 
+  EventReference:
+    Guid:
+      Data1: 1720891940
+      Data2: 1221148656
+      Data3: 427248265
+      Data4: -1151031265
+    Path: event:/Carrot Gun Sound
+  Event: 
+  EventPlayTrigger: 11
+  EventStopTrigger: 12
+  AllowFadeout: 1
+  TriggerOnce: 0
+  Preload: 0
+  NonRigidbodyVelocity: 0
+  Params: []
+  OverrideAttenuation: 0
+  OverrideMinDistance: 1
+  OverrideMaxDistance: 20
 --- !u!114 &4918555212020589774
 MonoBehaviour:
   m_ObjectHideFlags: 0

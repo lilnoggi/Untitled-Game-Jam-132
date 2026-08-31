@@ -10,8 +10,9 @@ GameObject:
   m_Component:
   - component: {fileID: 5786046329472499418}
   - component: {fileID: 2311575094504995214}
-  - component: {fileID: 2852131127606846153}
+  - component: {fileID: 5576882270216036440}
   - component: {fileID: 2046405764505604684}
+  - component: {fileID: 2852131127606846153}
   m_Layer: 7
   m_Name: WaterProjectile_Prefab
   m_TagString: Untagged
@@ -62,7 +63,7 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 1
   m_Constraints: 4
---- !u!114 &2852131127606846153
+--- !u!114 &5576882270216036440
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -71,9 +72,28 @@ MonoBehaviour:
   m_GameObject: {fileID: 1630189201451078171}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e4cc3532b844f8542a4f83cae5c08240, type: 3}
+  m_Script: {fileID: 11500000, guid: 9a6610d2e704f1648819acc8d7460285, type: 3}
   m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::ProjectileBehaviour
+  m_EditorClassIdentifier: FMODUnity::FMODUnity.StudioEventEmitter
+  CollisionTag: 
+  EventReference:
+    Guid:
+      Data1: 1245006373
+      Data2: 1210108391
+      Data3: -759981168
+      Data4: -1156131110
+    Path: event:/Water Gun Sound
+  Event: 
+  EventPlayTrigger: 11
+  EventStopTrigger: 12
+  AllowFadeout: 1
+  TriggerOnce: 0
+  Preload: 0
+  NonRigidbodyVelocity: 0
+  Params: []
+  OverrideAttenuation: 0
+  OverrideMinDistance: 1
+  OverrideMaxDistance: 20
 --- !u!61 &2046405764505604684
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -120,6 +140,18 @@ BoxCollider2D:
   m_AutoTiling: 0
   m_Size: {x: 0.65, y: 0.3}
   m_EdgeRadius: 0
+--- !u!114 &2852131127606846153
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1630189201451078171}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e4cc3532b844f8542a4f83cae5c08240, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::ProjectileBehaviour
 --- !u!1 &8115330392089910908
 GameObject:
   m_ObjectHideFlags: 0

@@ -103,6 +103,7 @@ GameObject:
   - component: {fileID: 5790134818504283651}
   - component: {fileID: 7951697646332871470}
   - component: {fileID: 8930322761825881959}
+  - component: {fileID: 6775626577446836408}
   - component: {fileID: 8580769327500639493}
   m_Layer: 7
   m_Name: PaintballProjectile_Prefab
@@ -200,6 +201,37 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 1
   m_Constraints: 4
+--- !u!114 &6775626577446836408
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6911710358772585550}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9a6610d2e704f1648819acc8d7460285, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: FMODUnity::FMODUnity.StudioEventEmitter
+  CollisionTag: 
+  EventReference:
+    Guid:
+      Data1: -1972674030
+      Data2: 1251388374
+      Data3: 1641446796
+      Data4: -1005449034
+    Path: event:/Paintball Sound
+  Event: 
+  EventPlayTrigger: 11
+  EventStopTrigger: 12
+  AllowFadeout: 1
+  TriggerOnce: 0
+  Preload: 0
+  NonRigidbodyVelocity: 0
+  Params: []
+  OverrideAttenuation: 0
+  OverrideMinDistance: 1
+  OverrideMaxDistance: 20
 --- !u!114 &8580769327500639493
 MonoBehaviour:
   m_ObjectHideFlags: 0

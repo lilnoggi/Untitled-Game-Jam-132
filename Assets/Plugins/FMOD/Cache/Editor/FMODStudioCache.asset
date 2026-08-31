@@ -1,0 +1,208 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &-8504835559467942915
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c18180ecb35941f4682ae60107b85b7c, type: 3}
+  m_Name: bank:/Master.strings.bank
+  m_EditorClassIdentifier: FMODUnityEditor::FMODUnity.EditorBankRef
+  Path: ../Documents/Music/GameJam Stuff/Untitled Game Jam 132 Rabbits and Guns/Rabbits
+    and Guns/Build/Desktop/Master.strings.bank
+  Name: Master.strings
+  StudioPath: bank:/Master.strings
+  lastModified: 639237965771885587
+  FileSizes:
+  - Name: Desktop
+    Value: 980
+  Exists: 1
+--- !u!114 &-7427368057743406375
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/Battle Theme
+  m_EditorClassIdentifier: FMODUnityEditor::FMODUnity.EditorEventRef
+  Path: event:/Battle Theme
+  Guid:
+    Data1: -188665372
+    Data2: 1333419546
+    Data3: -1506513521
+    Data4: -1243637829
+  Banks:
+  - {fileID: 7498433943157768923}
+  IsStream: 1
+  Is3D: 0
+  IsOneShot: 0
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 86544
+--- !u!114 &-5830207342163922026
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/Paintball Sound
+  m_EditorClassIdentifier: FMODUnityEditor::FMODUnity.EditorEventRef
+  Path: event:/Paintball Sound
+  Guid:
+    Data1: -1972674030
+    Data2: 1251388374
+    Data3: 1641446796
+    Data4: -1005449034
+  Banks:
+  - {fileID: -3928778926462471789}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 0
+--- !u!114 &-3928778926462471789
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c18180ecb35941f4682ae60107b85b7c, type: 3}
+  m_Name: bank:/Weapon Sounds.bank
+  m_EditorClassIdentifier: FMODUnityEditor::FMODUnity.EditorBankRef
+  Path: ../Documents/Music/GameJam Stuff/Untitled Game Jam 132 Rabbits and Guns/Rabbits
+    and Guns/Build/Desktop/Weapon Sounds.bank
+  Name: Weapon Sounds
+  StudioPath: bank:/Weapon Sounds
+  lastModified: 639237958864709194
+  FileSizes:
+  - Name: Desktop
+    Value: 38080
+  Exists: 1
+--- !u!114 &-305670991830072584
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/Carrot Gun Sound
+  m_EditorClassIdentifier: FMODUnityEditor::FMODUnity.EditorEventRef
+  Path: event:/Carrot Gun Sound
+  Guid:
+    Data1: 1720891940
+    Data2: 1221148656
+    Data3: 427248265
+    Data4: -1151031265
+  Banks:
+  - {fileID: -3928778926462471789}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 0
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d32cf7c32a3ed8347bac48ef5ed56d82, type: 3}
+  m_Name: FMODStudioCache
+  m_EditorClassIdentifier: FMODUnityEditor::FMODUnity.EventCache
+  EditorBanks:
+  - {fileID: -8504835559467942915}
+  - {fileID: 7498433943157768923}
+  - {fileID: -3928778926462471789}
+  EditorEvents:
+  - {fileID: -305670991830072584}
+  - {fileID: 2894020635274227300}
+  - {fileID: -7427368057743406375}
+  - {fileID: -5830207342163922026}
+  EditorParameters: []
+  MasterBanks:
+  - {fileID: 7498433943157768923}
+  StringsBanks:
+  - {fileID: -8504835559467942915}
+  cacheVersion: 131860
+  cacheTime: 639237965771885587
+  SerializableEventsDict:
+  - key: event:/Carrot Gun Sound
+    index: 0
+  - key: event:/Water Gun Sound
+    index: 1
+  - key: event:/Battle Theme
+    index: 2
+--- !u!114 &2894020635274227300
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/Water Gun Sound
+  m_EditorClassIdentifier: FMODUnityEditor::FMODUnity.EditorEventRef
+  Path: event:/Water Gun Sound
+  Guid:
+    Data1: 1245006373
+    Data2: 1210108391
+    Data3: -759981168
+    Data4: -1156131110
+  Banks:
+  - {fileID: -3928778926462471789}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 0
+--- !u!114 &7498433943157768923
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c18180ecb35941f4682ae60107b85b7c, type: 3}
+  m_Name: bank:/Master.bank
+  m_EditorClassIdentifier: FMODUnityEditor::FMODUnity.EditorBankRef
+  Path: ../Documents/Music/GameJam Stuff/Untitled Game Jam 132 Rabbits and Guns/Rabbits
+    and Guns/Build/Desktop/Master.bank
+  Name: Master
+  StudioPath: bank:/Master
+  lastModified: 639237965771880605
+  FileSizes:
+  - Name: Desktop
+    Value: 1218528
+  Exists: 1
