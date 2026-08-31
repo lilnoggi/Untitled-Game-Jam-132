@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5845475388225088671}
   - component: {fileID: 4567022374812879732}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Enemy_Sprite
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -105,7 +105,7 @@ GameObject:
   - component: {fileID: 8119621155795148156}
   - component: {fileID: 7867120093967910641}
   - component: {fileID: 3126420337761927126}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Enemy_Prefab
   m_TagString: Untagged
   m_Icon: {fileID: 0}
