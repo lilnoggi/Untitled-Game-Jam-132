@@ -18,15 +18,21 @@ public class WaveSpawner : MonoBehaviour
     [SerializeField] private WaveConfig[] _waves;
     [SerializeField] private GameObject _enemyPrefab;
     [SerializeField] private Transform[] _spawnPoints;
+    [SerializeField] private float _timeBetweenWaves = 3f;
 
     [Header("Targeting")]
-    [SerializeField] private Transform _targetToDefend;
+    [SerializeField] private Transform _rabbitHoleTarget;
+    [SerializeField] private BoxCollider2D _roamAreaBounds;
 
     private int _currentWaveIndex = 0;
     private int _enemiesAlive = 0;
     private int _enemiesSpawnedThisWave = 0;
+
     private bool _isSpawning = false;
     private float _spawnTimer = 0f;
+
+    private bool _isWaiting = true;
+    private float _countdownTimer = 0f;
 
     // --------------------------------------------------------------
 
@@ -43,12 +49,30 @@ public class WaveSpawner : MonoBehaviour
 
     private void Start()
     {
-        StartWave();
+        // Start the game with a countdown before Wave 1 begins
+        _countdownTimer = _timeBetweenWaves;
+        _isWaiting = true;
     }
 
     private void Update()
     {
-        if (_isSpawning)
+        if (_isWaiting)
+        {
+            _countdownTimer -= Time.deltaTime;
+
+            // Push to UIManager
+            UIManager.Instance.UpdateTimerText(_countdownTimer);
+
+            if (_countdownTimer <= 0)
+            {
+                _isWaiting = false;
+
+                // Clear the timer text
+                UIManager.Instance.UpdateTimerText(0f);
+                StartWave();
+            }
+        }
+        else if (_isSpawning) 
         {
             _spawnTimer += Time.deltaTime;
 
@@ -66,6 +90,9 @@ public class WaveSpawner : MonoBehaviour
         _isSpawning = true;
         _enemiesSpawnedThisWave = 0;
         _spawnTimer = 0f;
+
+        // Push the current wave name to the UI
+        UIManager.Instance.UpdateWaveText(_waves[_currentWaveIndex].waveName);
     }
 
     private void SpawnEnemy()
@@ -83,7 +110,7 @@ public class WaveSpawner : MonoBehaviour
         EnemyAI enemyAI = enemyObj.GetComponent<EnemyAI>();
         if (enemyAI != null)
         {
-            enemyAI.InitialiseEnemy(randomData, _targetToDefend);
+            enemyAI.InitialiseEnemy(randomData, _rabbitHoleTarget, _roamAreaBounds);
         }
 
         _enemiesAlive++;
@@ -118,12 +145,13 @@ public class WaveSpawner : MonoBehaviour
         {
             // TODO: Open ShopManager here instead
             
-            // Automatically start the next wave after a 3-second delay
-            Invoke(nameof(StartWave), 3f);
+            // Start the waiting phase for the UI
+            _countdownTimer = _timeBetweenWaves;
+            _isWaiting = true;
         }
         else
         {
-            // TODO: Trigger VictoryConditionsManager
+            VictoryConditionsManager.Instance.TriggerVictory();
         }
     }
 }

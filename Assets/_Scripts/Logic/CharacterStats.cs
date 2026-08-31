@@ -5,7 +5,14 @@ public class CharacterStats : MonoBehaviour, IDamageable
     private EnemyData _enemyData;
     private float _currentHealth;
 
+    private EnemyAI _enemyAI;
+
     // --------------------------------
+
+    private void Awake()
+    {
+        _enemyAI = GetComponent<EnemyAI>();
+    }
 
     /// <summary>
     /// COnfigures the stats based on the provided data.
@@ -25,6 +32,12 @@ public class CharacterStats : MonoBehaviour, IDamageable
     /// <param name="amount">Amount of damage.</param>
     public void TakeDamage(float amount)
     {
+        // Ignore damage if the enemy is already fleeing
+        if (_currentHealth <= 0)
+        {
+            return;
+        }
+        
         _currentHealth -= amount;
 
         // TODO: Trigger hit animation
@@ -39,10 +52,10 @@ public class CharacterStats : MonoBehaviour, IDamageable
     {
         // TODO: EconomyManager will call this _enemyData.PointsAwarded
 
-        // WaveSpawner needs to know an enemy was defeated
-        WaveSpawner.Instance.OnEnemyDefeated();
-
-        // Return prefab to pool
-        PoolManager.Instance.ReturnToPool(gameObject);
+        // Trigger fleeing state
+        if (_enemyAI != null)
+        {
+            _enemyAI.StartFleeing();
+        }
     }
 }

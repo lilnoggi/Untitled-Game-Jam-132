@@ -6,9 +6,13 @@ public class EnemyAI : MonoBehaviour
 {
     private EnemyData _currentData;
     private Transform _target;
+    private BoxCollider2D _roamArea;
     private Rigidbody2D _rb;
     private CharacterStats _stats;
     private SpriteRenderer _sr;
+    private Vector2 _currentRoamTarget;
+    private Vector2 _fleeTarget;
+    private bool _isFleeing = false;
 
     // ------------------------------------
 
@@ -24,11 +28,15 @@ public class EnemyAI : MonoBehaviour
     /// Called from the WaveSpawner after pulling the enemy from the pool.
     /// </summary>
     /// <param name="data">EnemyData</param>
-    /// <param name="target">Target the enemy moves towards</param>
-    public void InitialiseEnemy(EnemyData data, Transform target)
+    /// <param name="rabbitHole">Target the enemy moves towards</param>
+    public void InitialiseEnemy(EnemyData data, Transform rabbitHole, BoxCollider2D roamArea)
     {
+        // Reset fleeing state when pulled from the pool
+        _isFleeing = false;
+
         _currentData = data;
-        _target = target;
+        _target = rabbitHole;
+        _roamArea = roamArea;
 
         // Pass the data down to the stats component to configure health
         _stats.InitialiseEnemyHealth(data);
@@ -37,6 +45,12 @@ public class EnemyAI : MonoBehaviour
         if (_sr != null)
         {
             _sr.color = data.EnemyColour;
+        }
+
+        // If this is a roaming enemy, pick their first destination
+        if (_currentData.Type != EnemyType.CityPlanner)
+        {
+            PickNewRoamTarget();
         }
     }
 
@@ -47,15 +61,114 @@ public class EnemyAI : MonoBehaviour
             return;
         }
 
-        MoveTowardsTarget();
+        // Override the state machine if enemy is annoyed and leaving
+        if (_isFleeing)
+        {
+            MoveTowardsDestination(_fleeTarget);
+
+            // Check if enemy has reached off-screen coordinate
+            if (Vector2.Distance(transform.position, _fleeTarget) < 2f)
+            {
+                WaveSpawner.Instance.OnEnemyDefeated();
+                PoolManager.Instance.ReturnToPool(gameObject);
+            }
+
+            return;
+        }
+
+        switch (_currentData.Type)
+        {
+            case EnemyType.CityPlanner:
+                // Boss strictly targets the rabbit hole
+                MoveTowardsDestination(_target.position);
+                break;
+
+            case EnemyType.ConfusedTourist:           
+            case EnemyType.LitteringTeenager:
+            case EnemyType.ConstructionWorker:
+                // All standard enemies share the roaming logic for now
+                HandleRoaming();
+                break;
+        }
     }
 
-    private void MoveTowardsTarget()
+    private void MoveTowardsDestination(Vector2 destination)
     {
-        // Simple vector locomotion to chase the target
-        Vector2 direction = (_target.position - transform.position).normalized;
+        // Simple vector locomotion to chase the destination
+        Vector2 direction = (destination - (Vector2)transform.position).normalized;
 
-        // Push the Rigidbody2D towards the target using the ScriptableObject's speed value
+        // Push the Rigidbody2D towards the destination using the ScriptableObject's speed value
         _rb.MovePosition(_rb.position + direction * _currentData.MoveSpeed * Time.fixedDeltaTime);
+    }
+
+    private void HandleRoaming()
+    {
+        MoveTowardsDestination(_currentRoamTarget);
+
+        // If the enemy is close enough to their random spot, pick a new one
+        if (Vector2.Distance(transform.position, _currentRoamTarget) < 0.5f)
+        {
+            PickNewRoamTarget();
+
+            // TODO: Trigger specific abilities here (take picture, drop flag, throw litter)
+        }
+    }
+
+    private void PickNewRoamTarget()
+    {
+        if (_roamArea == null)
+        {
+            return;
+        }
+
+        Bounds bounds = _roamArea.bounds;
+        float randomX = Random.Range(bounds.min.x, bounds.max.x);
+        float randomY = Random.Range(bounds.min.y, bounds.max.y);
+
+        _currentRoamTarget = new Vector2(randomX, randomY);
+    }
+
+    public void StartFleeing()
+    {
+        _isFleeing = true;
+
+        // Pick a coordinate far off-screen by calculating the direction away from the center
+        Vector2 fleeDirection = ((Vector2)transform.position - (Vector2)_target.position).normalized;
+        _fleeTarget = (Vector2)transform.position + fleeDirection * 15f;
+    }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        // Only trigger damage if the city planner hits the specific rabbit hole target
+        if (collision.CompareTag("RabbitHole") && _currentData.Type == EnemyType.CityPlanner)
+        {
+            VictoryConditionsManager.Instance.DamageForest(25f);
+
+            // Tell the spawner the boss has been removed
+            WaveSpawner.Instance.OnEnemyDefeated();
+            PoolManager.Instance.ReturnToPool(gameObject);
+        }
+    }
+
+    // The enemy stays in the roam area and applies damage over time
+    private void OnTriggerStay2D(Collider2D collision)
+    {
+        // Only tri
+        if (!_isFleeing && collision.CompareTag("Forest"))
+        {
+            // Drain a tiny amount of health every frame
+            // Damage the forest
+            VictoryConditionsManager.Instance.DamageForest(2f * Time.fixedDeltaTime);
+        }     
+    }
+
+    // Detect when the enemy physically walks outside the box
+    private void OnTriggerExit2D(Collider2D collision)
+    {
+        if (_isFleeing && collision.CompareTag("Forest"))
+        {
+            // Restore forest health and finally return to the pool
+            VictoryConditionsManager.Instance.HealForest(10f);
+        }     
     }
 }
