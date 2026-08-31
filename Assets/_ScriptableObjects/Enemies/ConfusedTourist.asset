@@ -16,5 +16,5 @@ MonoBehaviour:
   _enemyName: Confused Tourist
   _maxHealth: 100
   _moveSpeed: 2
-  _pointsAwarded: 100
+  _pointsAwarded: 10
   _enemyColour: {r: 0.13861692, g: 0.18075085, b: 0.8396226, a: 1}

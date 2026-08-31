@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1130408053259090521}
   - component: {fileID: 509698897148538175}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Circle
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -104,7 +104,7 @@ GameObject:
   - component: {fileID: 7951697646332871470}
   - component: {fileID: 8930322761825881959}
   - component: {fileID: 8580769327500639493}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: PaintballProjectile_Prefab
   m_TagString: Untagged
   m_Icon: {fileID: 0}

@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 2311575094504995214}
   - component: {fileID: 2852131127606846153}
   - component: {fileID: 2046405764505604684}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: WaterProjectile_Prefab
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -130,7 +130,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1647656774256399604}
   - component: {fileID: 5641335920565631530}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Capsule
   m_TagString: Untagged
   m_Icon: {fileID: 0}

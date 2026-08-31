@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 8342319386944953775}
   - component: {fileID: 8399926726759205961}
   - component: {fileID: 4918555212020589774}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: CarrotProjectile_Prefab
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -130,7 +130,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7472105071898614810}
   - component: {fileID: 6224367183214170041}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Triangle
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -223,7 +223,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3179975182667313454}
   - component: {fileID: 574829193634101068}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Square
   m_TagString: Untagged
   m_Icon: {fileID: 0}
