@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.02.03.00">
+	<object class="AudioFile" id="{88e8d09a-761c-4a4c-bd84-58516b81a531}">
+		<property name="assetPath">
+			<value>paintball_gun.wav</value>
+		</property>
+		<property name="frequencyInKHz">
+			<value>48</value>
+		</property>
+		<property name="channelCount">
+			<value>2</value>
+		</property>
+		<property name="length">
+			<value>1.4519791666666666</value>
+		</property>
+		<relationship name="masterAssetFolder">
+			<destination>{7e148bcc-1868-46a5-a153-70805170d4b8}</destination>
+		</relationship>
+	</object>
+</objects>
