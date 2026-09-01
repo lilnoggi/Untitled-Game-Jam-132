@@ -15,6 +15,10 @@ public class UIManager : MonoBehaviour
     [SerializeField] private TextMeshProUGUI _waveText;
     [SerializeField] private TextMeshProUGUI _timerText;
 
+    [Header("Boss UI")]
+    [SerializeField] private GameObject _bossHealthContainer;
+    [SerializeField] private Slider _bossHealthBar;
+
     [Header("Endgame Screens")]
     [SerializeField] private GameObject _victoryPanel;
     [SerializeField] private GameObject _defeatPanel;
@@ -33,6 +37,11 @@ public class UIManager : MonoBehaviour
         }
 
         Instance = this;
+    }
+
+    private void Start()
+    {
+        _bossHealthContainer.SetActive(false);
     }
 
     // --- HUD UPDATES ---
@@ -75,6 +84,23 @@ public class UIManager : MonoBehaviour
         {
             _forestHealthBar.maxValue = maxHealth;
             _forestHealthBar.value = currentHealth;
+        }
+    }
+
+    public void ToggleBossHealthBar(bool isActive)
+    {
+        if (_bossHealthContainer != null)
+        {
+            _bossHealthContainer.SetActive(isActive);
+        }
+    }
+
+    public void UpdateBossHealthBar(float currentHealth, float maxHealth)
+    {
+        if (_bossHealthBar != null)
+        {
+            _bossHealthBar.maxValue = maxHealth;
+            _bossHealthBar.value = currentHealth;
         }
     }
 

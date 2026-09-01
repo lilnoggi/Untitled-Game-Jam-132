@@ -50,6 +50,12 @@ public class CharacterStats : MonoBehaviour, IDamageable
 
     private void Die()
     {
+        // If this is the boss, trigger the phase 2 swarm
+        if (_enemyData.Type == EnemyType.CityPlanner)
+        {
+            WaveSpawner.Instance.TriggerPhaseTwo(transform.position);
+        }
+        
         // TODO: EconomyManager will call this _enemyData.PointsAwarded
 
         // Trigger fleeing state

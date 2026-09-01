@@ -24,6 +24,10 @@ public class WaveSpawner : MonoBehaviour
     [SerializeField] private Transform _rabbitHoleTarget;
     [SerializeField] private BoxCollider2D _roamAreaBounds;
 
+    [Header("Boss Wave")]
+    [SerializeField] private GameObject _bossPrefab;
+    [SerializeField] private EnemyData _miniBossData;
+
     private int _currentWaveIndex = 0;
     private int _enemiesAlive = 0;
     private int _enemiesSpawnedThisWave = 0;
@@ -103,14 +107,31 @@ public class WaveSpawner : MonoBehaviour
         Transform randomSpawn = _spawnPoints[Random.Range(0, _spawnPoints.Length)];
         EnemyData randomData = currentWave.allowedEnemyTypes[Random.Range(0, currentWave.allowedEnemyTypes.Length)];
 
-        // Get a blank enemy prefab from the pool
-        GameObject enemyObj = PoolManager.Instance.SpawnFromPool(_enemyPrefab, randomSpawn.position, Quaternion.identity);
-
-        // Put the specific EnemyData and target into the blank prefab
-        EnemyAI enemyAI = enemyObj.GetComponent<EnemyAI>();
-        if (enemyAI != null)
+        // Check if spawner selected the boss
+        if (randomData.Type == EnemyType.CityPlanner)
         {
-            enemyAI.InitialiseEnemy(randomData, _rabbitHoleTarget, _roamAreaBounds);
+            // Instantiate the boss
+            GameObject bossObj = Instantiate(_bossPrefab, randomSpawn.position, Quaternion.identity);
+
+            BossAI bossAI = bossObj.GetComponent<BossAI>();
+            if (bossAI != null)
+            {
+                bossAI.InitialiseBoss(_rabbitHoleTarget, _roamAreaBounds);
+            }
+        }
+        else
+        {
+            // Generic swarm logic
+
+            // Get a blank enemy prefab from the pool
+            GameObject enemyObj = PoolManager.Instance.SpawnFromPool(_enemyPrefab, randomSpawn.position, Quaternion.identity);
+
+            // Put the specific EnemyData and target into the blank prefab
+            EnemyAI enemyAI = enemyObj.GetComponent<EnemyAI>();
+            if (enemyAI != null)
+            {
+                enemyAI.InitialiseEnemy(randomData, _rabbitHoleTarget, _roamAreaBounds);
+            }
         }
 
         _enemiesAlive++;
@@ -152,6 +173,29 @@ public class WaveSpawner : MonoBehaviour
         else
         {
             VictoryConditionsManager.Instance.TriggerVictory();
+        }
+    }
+
+    public void TriggerPhaseTwo(Vector2 deathPosition)
+    {
+        // Spawn 3 mini-bosses when the main boss dies
+        for (int i = 0; i < 3; i++)
+        {
+            // Add a random offset so they burst outward and don't stack perfectly
+            Vector2 offset = new Vector2(Random.Range(-1.5f, 1.5f), Random.Range(-1.5f, 1.5f));
+            GameObject minionObj = PoolManager.Instance.SpawnFromPool(_enemyPrefab, deathPosition + offset, Quaternion.identity);
+
+            EnemyAI enemyAI = minionObj.GetComponent<EnemyAI>();
+            if (enemyAI != null)
+            {
+                enemyAI.InitialiseEnemy(_miniBossData, _rabbitHoleTarget, _roamAreaBounds);
+
+                // Scale them down visually to half size
+                minionObj.transform.localScale = new Vector3(0.5f, 0.5f, 1f);
+            }
+
+            // Inflate wave count so victory screen waits for these minions to die
+            _enemiesAlive++;
         }
     }
 }
