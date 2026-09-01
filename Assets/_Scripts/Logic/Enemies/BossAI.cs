@@ -7,6 +7,8 @@ public class BossAI : MonoBehaviour, IDamageable
     [SerializeField] private EnemyData _bossData;
     [SerializeField] private float _coffeeHealthDuration = 2f;
     [SerializeField] private float _minionSpawnRate = 3f;
+    [SerializeField] private float _dashSpeedMultiplier = 3f;
+    [SerializeField] private float _dashDuration = 1.5f;
 
     private Transform _rabbitHoleTarget;
     private BoxCollider2D _roamArea;
@@ -14,12 +16,19 @@ public class BossAI : MonoBehaviour, IDamageable
 
     private float _currentHealth;
     private float _minionTimer = 0f;
+    private float _stateTimer = 0f;
 
     // State Tracking
     private bool _isPhaseTwo = false;
     private bool _isDrinkingCoffee = false;
     private bool _isDefeated = false;
     private bool _hasDrunkCoffee = false;
+
+    // Dash Tracking
+    private bool _isWindingUp = true;
+    private bool _isDashing = false;
+    private Vector2 _cornerTarget;
+    private Vector2 _dashDirection;
 
     // ---------------------------------------------------------------
 
@@ -41,6 +50,8 @@ public class BossAI : MonoBehaviour, IDamageable
 
         UIManager.Instance.ToggleBossHealthBar(true);
         UIManager.Instance.UpdateBossHealthBar(_currentHealth, _bossData.MaxHealth);
+
+        PickNewCorner();
     }
 
     private void FixedUpdate()
@@ -61,9 +72,57 @@ public class BossAI : MonoBehaviour, IDamageable
             }
         }
 
-        // Standard Movement towards the rabbit hole
-        Vector2 direction = (_rabbitHoleTarget.position - transform.position).normalized;
-        _rb.MovePosition(_rb.position + direction * _bossData.MoveSpeed * Time.fixedDeltaTime);
+        // --- DASH STATE MACHINE ---
+        if (_isWindingUp)
+        {
+            // Move toward the selected corner
+            Vector2 direction = (_cornerTarget - (Vector2)transform.position).normalized;
+            _rb.MovePosition(_rb.position + direction * _bossData.MoveSpeed * Time.fixedDeltaTime);
+
+            // Once reached corner, trigger dash
+            if (Vector2.Distance(transform.position, _cornerTarget) < 0.5f)
+            {
+                StartDash();
+            }
+        }
+        else if (_isDashing)
+        {
+            // Move along the dash direction at high speed
+            _rb.MovePosition(_rb.position + _dashDirection * (_bossData.MoveSpeed * _dashSpeedMultiplier) * Time.fixedDeltaTime);
+
+            _stateTimer -= Time.fixedDeltaTime;
+            if (_stateTimer <= 0)
+            {
+                PickNewCorner();
+            }
+        }
+    }
+
+    private void PickNewCorner()
+    {
+        if (_roamArea == null)
+        {
+            return;
+        }
+
+        Bounds bounds = _roamArea.bounds;
+
+        // Randomly snap to either far left/right and far top/bottom
+        float x = Random.value > 0.5f ? bounds.min.x : bounds.max.x;
+        float y = Random.value > 0.5f ? bounds.min.y : bounds.max.y;
+
+        _cornerTarget = new Vector2(x, y);
+        _isWindingUp = true;
+        _isDashing = false;
+    }
+
+    private void StartDash()
+    {
+        _isWindingUp = false;
+        _isDashing = true;
+
+        _dashDirection = ((Vector2)_rabbitHoleTarget.position - (Vector2)transform.position).normalized;
+        _stateTimer = _dashDuration;
     }
 
     public void TakeDamage(float amount)
@@ -124,6 +183,7 @@ public class BossAI : MonoBehaviour, IDamageable
 
         // Update UIManager Boss health bar
         UIManager.Instance.UpdateBossHealthBar(_currentHealth, _bossData.MaxHealth);
+        PickNewCorner();
     }
 
     private void Die()
