@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.02.03.00">
+	<object class="EffectPreset" id="{dbd8cbad-7798-4b80-ba8a-99e44d5a6c3b}">
+		<property name="note">
+			<value>Randomness for weapon fire</value>
+		</property>
+		<property name="color">
+			<value>Red</value>
+		</property>
+		<property name="name">
+			<value>Weapon Randomness Chain</value>
+		</property>
+		<relationship name="folder">
+			<destination>{d9954f8f-ad07-4f16-8539-a308b90a532f}</destination>
+		</relationship>
+		<relationship name="effect">
+			<destination>{60c3a953-9ccf-4b4b-89c9-8c1ac4911723}</destination>
+		</relationship>
+	</object>
+	<object class="EffectChain" id="{60c3a953-9ccf-4b4b-89c9-8c1ac4911723}">
+		<property name="color">
+			<value>Red</value>
+		</property>
+		<relationship name="effects">
+			<destination>{15b94344-3feb-4dae-bb51-e726a5883232}</destination>
+			<destination>{c83397d8-3b99-43d0-9384-cb5d70ab0520}</destination>
+		</relationship>
+	</object>
+	<object class="PitchShifterEffect" id="{15b94344-3feb-4dae-bb51-e726a5883232}">
+		<property name="pitch">
+			<value>1</value>
+		</property>
+		<property name="overlap">
+			<value>32</value>
+		</property>
+		<relationship name="modulators">
+			<destination>{e50b8526-3b84-4e78-9249-7c562b7abd28}</destination>
+		</relationship>
+	</object>
+	<object class="MultibandEqEffect" id="{c83397d8-3b99-43d0-9384-cb5d70ab0520}">
+		<property name="filterTypeB">
+			<value>9</value>
+		</property>
+		<property name="filterTypeC">
+			<value>9</value>
+		</property>
+		<property name="frequencyA">
+			<value>22000</value>
+		</property>
+		<property name="frequencyB">
+			<value>3400</value>
+		</property>
+		<property name="frequencyC">
+			<value>220</value>
+		</property>
+		<property name="qualityB">
+			<value>1.30000007</value>
+		</property>
+		<property name="qualityC">
+			<value>1.45000005</value>
+		</property>
+		<property name="gainB">
+			<value>2</value>
+		</property>
+		<property name="gainC">
+			<value>-4</value>
+		</property>
+		<relationship name="modulators">
+			<destination>{a1fc7b30-7900-4e0a-884d-9fbc697b2f0c}</destination>
+			<destination>{92574aae-f4a1-4f98-92b4-9211a722c59f}</destination>
+			<destination>{60772f4b-a98b-4558-814a-e58357768da5}</destination>
+			<destination>{d02019b9-d8a7-4840-a70c-d9aef3696da4}</destination>
+			<destination>{4fbb5d13-12a2-425c-8a9e-64f95f2d3ab9}</destination>
+		</relationship>
+	</object>
+	<object class="RandomizerModulator" id="{e50b8526-3b84-4e78-9249-7c562b7abd28}">
+		<property name="nameOfPropertyBeingModulated">
+			<value>pitch</value>
+		</property>
+		<property name="amount">
+			<value>3.5</value>
+		</property>
+	</object>
+	<object class="RandomizerModulator" id="{a1fc7b30-7900-4e0a-884d-9fbc697b2f0c}">
+		<property name="nameOfPropertyBeingModulated">
+			<value>frequencyA</value>
+		</property>
+		<property name="amount">
+			<value>6.5</value>
+		</property>
+	</object>
+	<object class="RandomizerModulator" id="{92574aae-f4a1-4f98-92b4-9211a722c59f}">
+		<property name="nameOfPropertyBeingModulated">
+			<value>gainB</value>
+		</property>
+		<property name="amount">
+			<value>3.5</value>
+		</property>
+	</object>
+	<object class="RandomizerModulator" id="{60772f4b-a98b-4558-814a-e58357768da5}">
+		<property name="nameOfPropertyBeingModulated">
+			<value>frequencyB</value>
+		</property>
+		<property name="amount">
+			<value>23.5</value>
+		</property>
+	</object>
+	<object class="RandomizerModulator" id="{d02019b9-d8a7-4840-a70c-d9aef3696da4}">
+		<property name="nameOfPropertyBeingModulated">
+			<value>gainC</value>
+		</property>
+		<property name="amount">
+			<value>6</value>
+		</property>
+	</object>
+	<object class="RandomizerModulator" id="{4fbb5d13-12a2-425c-8a9e-64f95f2d3ab9}">
+		<property name="nameOfPropertyBeingModulated">
+			<value>frequencyC</value>
+		</property>
+		<property name="amount">
+			<value>21.5</value>
+		</property>
+	</object>
+</objects>
