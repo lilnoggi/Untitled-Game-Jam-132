@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::EnemyData
   _type: 3
   _enemyName: CityPlanner
-  _maxHealth: 175
+  _maxHealth: 10000
   _moveSpeed: 5
   _pointsAwarded: 500
   _enemyColour: {r: 0.7924528, g: 0.17568529, b: 0.17568529, a: 1}

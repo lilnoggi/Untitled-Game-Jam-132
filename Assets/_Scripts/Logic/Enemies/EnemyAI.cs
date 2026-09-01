@@ -34,6 +34,9 @@ public class EnemyAI : MonoBehaviour
         // Reset fleeing state when pulled from the pool
         _isFleeing = false;
 
+        // Reset scale for object pool
+        transform.localScale = Vector3.one;
+
         _currentData = data;
         _target = rabbitHole;
         _roamArea = roamArea;
@@ -64,7 +67,8 @@ public class EnemyAI : MonoBehaviour
         // Override the state machine if enemy is annoyed and leaving
         if (_isFleeing)
         {
-            MoveTowardsDestination(_fleeTarget);
+            // Sprint away at 3x speed
+            MoveTowardsDestination(_fleeTarget, 3f);
 
             // Check if enemy has reached off-screen coordinate
             if (Vector2.Distance(transform.position, _fleeTarget) < 2f)
@@ -92,13 +96,13 @@ public class EnemyAI : MonoBehaviour
         }
     }
 
-    private void MoveTowardsDestination(Vector2 destination)
+    private void MoveTowardsDestination(Vector2 destination, float speedMultiplier = 1f)
     {
         // Simple vector locomotion to chase the destination
         Vector2 direction = (destination - (Vector2)transform.position).normalized;
 
         // Push the Rigidbody2D towards the destination using the ScriptableObject's speed value
-        _rb.MovePosition(_rb.position + direction * _currentData.MoveSpeed * Time.fixedDeltaTime);
+        _rb.MovePosition(_rb.position + direction * (_currentData.MoveSpeed * speedMultiplier) * Time.fixedDeltaTime);
     }
 
     private void HandleRoaming()

@@ -102,11 +102,10 @@ GameObject:
   m_Component:
   - component: {fileID: 5164793109062499064}
   - component: {fileID: 8412318579006084801}
-  - component: {fileID: 8119621155795148156}
   - component: {fileID: 7867120093967910641}
-  - component: {fileID: 3126420337761927126}
+  - component: {fileID: 2100682213022218342}
   m_Layer: 8
-  m_Name: Enemy_Prefab
+  m_Name: Boss_Prefab
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -174,18 +173,6 @@ BoxCollider2D:
   m_AutoTiling: 0
   m_Size: {x: 1.5, y: 1.5}
   m_EdgeRadius: 0
---- !u!114 &8119621155795148156
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5596461772913365370}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 28a8db8c6c70a7a4f9db38a726e31c42, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::CharacterStats
 --- !u!50 &7867120093967910641
 Rigidbody2D:
   serializedVersion: 5
@@ -213,7 +200,7 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 1
   m_Constraints: 4
---- !u!114 &3126420337761927126
+--- !u!114 &2100682213022218342
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -222,6 +209,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 5596461772913365370}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 47c4f49da647ffd4d953cc693b377ce4, type: 3}
+  m_Script: {fileID: 11500000, guid: 3d5cfad4a67839842969cb14c80b726d, type: 3}
   m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::EnemyAI
+  m_EditorClassIdentifier: Assembly-CSharp::BossAI
+  _bossData: {fileID: 11400000, guid: a25404a0fd2422446aab4c5c810f44bd, type: 2}
+  _coffeeHealthDuration: 2
+  _minionSpawnRate: 3
