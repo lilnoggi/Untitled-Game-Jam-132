@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.02.03.00">
+	<object class="EffectPreset" id="{04e132a8-d7d7-4283-bb9e-c540a8f0a25d}">
+		<property name="color">
+			<value>Purple</value>
+		</property>
+		<property name="name">
+			<value>Pause EQ</value>
+		</property>
+		<relationship name="folder">
+			<destination>{d9954f8f-ad07-4f16-8539-a308b90a532f}</destination>
+		</relationship>
+		<relationship name="effect">
+			<destination>{13f0018b-2b2d-4efe-84c1-7f1224b7b25a}</destination>
+		</relationship>
+	</object>
+	<object class="MultibandEqEffect" id="{13f0018b-2b2d-4efe-84c1-7f1224b7b25a}">
+		<property name="color">
+			<value>Purple</value>
+		</property>
+		<property name="wetDryEnabled">
+			<value>true</value>
+		</property>
+		<property name="wetMix">
+			<value>0</value>
+		</property>
+		<property name="filterTypeA">
+			<value>4</value>
+		</property>
+		<property name="filterTypeE">
+			<value>1</value>
+		</property>
+		<property name="frequencyA">
+			<value>145</value>
+		</property>
+		<property name="frequencyE">
+			<value>1150</value>
+		</property>
+		<property name="qualityA">
+			<value>0.25999999</value>
+		</property>
+		<property name="qualityE">
+			<value>0.479999989</value>
+		</property>
+		<relationship name="automators">
+			<destination>{3d4008a3-1dd3-4fee-85b4-59e815960909}</destination>
+		</relationship>
+	</object>
+	<object class="Automator" id="{3d4008a3-1dd3-4fee-85b4-59e815960909}">
+		<property name="nameOfPropertyBeingAutomated">
+			<value>wetMix</value>
+		</property>
+		<relationship name="automationCurves">
+			<destination>{5cc958e7-8a4e-4807-abb1-139e3ec9ff30}</destination>
+		</relationship>
+	</object>
+	<object class="AutomationCurve" id="{5cc958e7-8a4e-4807-abb1-139e3ec9ff30}">
+		<relationship name="parameter">
+			<destination>{f06d5030-0112-40f1-9fcc-f1f04462defb}</destination>
+		</relationship>
+		<relationship name="automationPoints">
+			<destination>{f0ec46c4-3cd2-44cf-b934-ab564194a067}</destination>
+			<destination>{ccdc96d4-142f-400d-b04f-617a73fbd344}</destination>
+		</relationship>
+	</object>
+	<object class="AutomationPoint" id="{f0ec46c4-3cd2-44cf-b934-ab564194a067}">
+		<property name="position">
+			<value>0</value>
+		</property>
+		<property name="value">
+			<value>0</value>
+		</property>
+	</object>
+	<object class="AutomationPoint" id="{ccdc96d4-142f-400d-b04f-617a73fbd344}">
+		<property name="position">
+			<value>1</value>
+		</property>
+		<property name="value">
+			<value>100</value>
+		</property>
+	</object>
+</objects>
