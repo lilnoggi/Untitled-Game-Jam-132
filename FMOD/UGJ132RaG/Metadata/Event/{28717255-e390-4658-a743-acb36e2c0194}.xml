@@ -33,6 +33,7 @@
 		</relationship>
 		<relationship name="banks">
 			<destination>{b1eb4f33-c274-45b1-9f85-8d1bffbb969f}</destination>
+			<destination>{5868a2b6-0445-4f62-8d1d-c6c346173990}</destination>
 		</relationship>
 	</object>
 	<object class="EventMixer" id="{116ac088-161d-4cbe-a579-9beca30e5028}">
@@ -53,7 +54,7 @@
 			<destination>{e037ef5c-bcf0-4c8b-ba60-e0a945be19e4}</destination>
 		</relationship>
 		<relationship name="output">
-			<destination>{05e23d76-123e-477d-9edd-2ad7307a6eea}</destination>
+			<destination>{f617f691-244c-4b3a-8149-95ef2901bf9f}</destination>
 		</relationship>
 	</object>
 	<object class="EventAutomatableProperties" id="{60a93494-b131-4971-bccb-a188de45ad7e}" />
@@ -92,6 +93,9 @@
 	</object>
 	<object class="MixerBusPanner" id="{e037ef5c-bcf0-4c8b-ba60-e0a945be19e4}" />
 	<object class="SingleSound" id="{6d9ee98d-cf58-4b7a-91d9-5734204c0236}">
+		<property name="triggerConditionMode">
+			<value>1</value>
+		</property>
 		<property name="length">
 			<value>86.543999999999997</value>
 		</property>
@@ -103,9 +107,6 @@
 		</relationship>
 	</object>
 	<object class="EventMixerGroup" id="{a4953162-9c87-4b0b-a62b-d6c46f04fdac}">
-		<property name="volume">
-			<value>6</value>
-		</property>
 		<property name="name">
 			<value>Audio 1</value>
 		</property>
@@ -145,6 +146,7 @@
 	<object class="MixerBusEffectChain" id="{26b92714-d8bc-410a-87cf-9649eea19e3d}">
 		<relationship name="effects">
 			<destination>{41f9923d-c20d-4345-b56c-487c683a68f6}</destination>
+			<destination>{12c36380-031b-41b4-90b5-a660fd7da7cd}</destination>
 		</relationship>
 	</object>
 	<object class="MixerBusPanner" id="{9387df93-1af4-40ed-af3a-d5389d863b85}" />
@@ -160,4 +162,12 @@
 		</property>
 	</object>
 	<object class="MixerBusFader" id="{41f9923d-c20d-4345-b56c-487c683a68f6}" />
+	<object class="ProxyEffect" id="{12c36380-031b-41b4-90b5-a660fd7da7cd}">
+		<property name="inputFormat">
+			<value>1</value>
+		</property>
+		<relationship name="preset">
+			<destination>{72beec3b-f3ff-4a8d-be9a-96a6b697e052}</destination>
+		</relationship>
+	</object>
 </objects>

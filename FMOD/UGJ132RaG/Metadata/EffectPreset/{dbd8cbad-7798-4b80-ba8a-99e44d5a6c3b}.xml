@@ -102,7 +102,7 @@
 			<value>frequencyB</value>
 		</property>
 		<property name="amount">
-			<value>23.5</value>
+			<value>34</value>
 		</property>
 	</object>
 	<object class="RandomizerModulator" id="{d02019b9-d8a7-4840-a70c-d9aef3696da4}">
@@ -110,7 +110,7 @@
 			<value>gainC</value>
 		</property>
 		<property name="amount">
-			<value>6</value>
+			<value>11</value>
 		</property>
 	</object>
 	<object class="RandomizerModulator" id="{4fbb5d13-12a2-425c-8a9e-64f95f2d3ab9}">
@@ -118,7 +118,7 @@
 			<value>frequencyC</value>
 		</property>
 		<property name="amount">
-			<value>21.5</value>
+			<value>27</value>
 		</property>
 	</object>
 </objects>

@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.02.03.00">
+	<object class="EffectPreset" id="{24800811-f46f-4f8c-934c-a15ab0442541}">
+		<property name="color">
+			<value>Purple</value>
+		</property>
+		<property name="name">
+			<value>FX Volume</value>
+		</property>
+		<relationship name="folder">
+			<destination>{d9954f8f-ad07-4f16-8539-a308b90a532f}</destination>
+		</relationship>
+		<relationship name="effect">
+			<destination>{30ca5717-4890-458f-9318-72696640e2a9}</destination>
+		</relationship>
+	</object>
+	<object class="GainEffect" id="{30ca5717-4890-458f-9318-72696640e2a9}">
+		<property name="color">
+			<value>Purple</value>
+		</property>
+		<relationship name="automators">
+			<destination>{828f9936-4850-4496-90dd-d5b7b88937a6}</destination>
+		</relationship>
+	</object>
+	<object class="Automator" id="{828f9936-4850-4496-90dd-d5b7b88937a6}">
+		<property name="nameOfPropertyBeingAutomated">
+			<value>gain</value>
+		</property>
+		<relationship name="automationCurves">
+			<destination>{0fe943ef-5d58-47be-8414-d4dcfe760ee4}</destination>
+		</relationship>
+	</object>
+	<object class="AutomationCurve" id="{0fe943ef-5d58-47be-8414-d4dcfe760ee4}">
+		<relationship name="parameter">
+			<destination>{2ec37060-3ad0-4b3f-82f2-68a161c73e00}</destination>
+		</relationship>
+		<relationship name="automationPoints">
+			<destination>{6faf8e37-4be3-4f51-aabe-b9e0eccdce42}</destination>
+			<destination>{6866c170-d29d-44f3-99a9-44d86b1f9a1a}</destination>
+		</relationship>
+	</object>
+	<object class="AutomationPoint" id="{6faf8e37-4be3-4f51-aabe-b9e0eccdce42}">
+		<property name="position">
+			<value>0</value>
+		</property>
+		<property name="value">
+			<value>-80</value>
+		</property>
+	</object>
+	<object class="AutomationPoint" id="{6866c170-d29d-44f3-99a9-44d86b1f9a1a}">
+		<property name="position">
+			<value>1</value>
+		</property>
+		<property name="value">
+			<value>10</value>
+		</property>
+	</object>
+</objects>
