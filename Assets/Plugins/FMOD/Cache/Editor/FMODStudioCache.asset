@@ -1,5 +1,49 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!114 &-7645060055249475443
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c18180ecb35941f4682ae60107b85b7c, type: 3}
+  m_Name: bank:/UI.bank
+  m_EditorClassIdentifier: FMODUnityEditor::FMODUnity.EditorBankRef
+  Path: FMOD/UGJ132RaG/Build/Desktop/UI.bank
+  Name: UI
+  StudioPath: bank:/UI
+  lastModified: 639239677703964224
+  FileSizes:
+  - Name: Desktop
+    Value: 47616
+  Exists: 1
+--- !u!114 &-5142550632499233352
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: parameter:/Carrot Gun/Master Volume
+  m_EditorClassIdentifier: FMODUnityEditor::FMODUnity.EditorParamRef
+  Name: Master Volume
+  StudioPath: 
+  Min: 0
+  Max: 1
+  Default: 0.8
+  ID:
+    data1: 661396678
+    data2: 3950397484
+  Type: 0
+  IsGlobal: 0
+  Labels: []
+  Exists: 1
 --- !u!114 &-4992580003186797153
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -19,6 +63,7 @@ MonoBehaviour:
     Data3: 1460849307
     Data4: 1252496292
   Banks:
+  - {fileID: 7015340576067526718}
   - {fileID: 4497159621620907987}
   IsStream: 0
   Is3D: 0
@@ -46,6 +91,36 @@ MonoBehaviour:
     Data3: -1067259974
     Data4: -92820225
   Banks:
+  - {fileID: 7015340576067526718}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 1
+  Parameters:
+  - {fileID: -5142550632499233352}
+  - {fileID: -730021081456181552}
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 0
+--- !u!114 &-2441843044197940998
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/Hover
+  m_EditorClassIdentifier: FMODUnityEditor::FMODUnity.EditorEventRef
+  Path: event:/Hover
+  Guid:
+    Data1: -1569270773
+    Data2: 1109375060
+    Data3: 415563401
+    Data4: 1875548195
+  Banks:
+  - {fileID: -7645060055249475443}
   - {fileID: 4497159621620907987}
   IsStream: 0
   Is3D: 0
@@ -73,14 +148,64 @@ MonoBehaviour:
     Data3: -1280556121
     Data4: -1811862418
   Banks:
+  - {fileID: 1234960458415949504}
   - {fileID: 4497159621620907987}
   IsStream: 1
   Is3D: 0
   IsOneShot: 0
-  Parameters: []
+  Parameters:
+  - {fileID: 6774423322194446436}
   MinDistance: 1
   MaxDistance: 20
   Length: 86544
+--- !u!114 &-856356657776859796
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: parameter:/Paintball Gun/FX Volume
+  m_EditorClassIdentifier: FMODUnityEditor::FMODUnity.EditorParamRef
+  Name: FX Volume
+  StudioPath: 
+  Min: 0
+  Max: 1
+  Default: 0.8
+  ID:
+    data1: 943971777
+    data2: 363842383
+  Type: 0
+  IsGlobal: 0
+  Labels: []
+  Exists: 1
+--- !u!114 &-730021081456181552
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: parameter:/Carrot Gun/FX Volume
+  m_EditorClassIdentifier: FMODUnityEditor::FMODUnity.EditorParamRef
+  Name: FX Volume
+  StudioPath: 
+  Min: 0
+  Max: 1
+  Default: 0.8
+  ID:
+    data1: 943971777
+    data2: 363842383
+  Type: 0
+  IsGlobal: 0
+  Labels: []
+  Exists: 1
 --- !u!114 &-67122616594910828
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -96,10 +221,10 @@ MonoBehaviour:
   Path: FMOD/UGJ132RaG/Build/Desktop/Master.strings.bank
   Name: Master.strings
   StudioPath: bank:/Master.strings
-  lastModified: 639238681877700631
+  lastModified: 639239703409146893
   FileSizes:
   - Name: Desktop
-    Value: 910
+    Value: 1610
   Exists: 1
 --- !u!114 &11400000
 MonoBehaviour:
@@ -116,18 +241,25 @@ MonoBehaviour:
   EditorBanks:
   - {fileID: -67122616594910828}
   - {fileID: 4497159621620907987}
+  - {fileID: 1234960458415949504}
+  - {fileID: -7645060055249475443}
+  - {fileID: 7015340576067526718}
   EditorEvents:
   - {fileID: -1287691125395947328}
   - {fileID: -4138174841204225318}
   - {fileID: -4992580003186797153}
   - {fileID: 5312054929209964673}
+  - {fileID: -2441843044197940998}
+  - {fileID: 6633616764926815039}
+  - {fileID: 9106801891081748254}
+  - {fileID: 7909777565322923124}
   EditorParameters: []
   MasterBanks:
   - {fileID: 4497159621620907987}
   StringsBanks:
   - {fileID: -67122616594910828}
   cacheVersion: 131860
-  cacheTime: 639238681877700631
+  cacheTime: 639239703409146893
   SerializableEventsDict:
   - key: event:/Battle Theme
     index: 0
@@ -137,6 +269,58 @@ MonoBehaviour:
     index: 2
   - key: event:/Paintball Gun
     index: 3
+  - key: event:/Hover
+    index: 4
+  - key: snapshot:/PauseMenu
+    index: 5
+  - key: event:/Click
+    index: 6
+  - key: event:/Pause
+    index: 7
+--- !u!114 &292455669245046885
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: parameter:/Paintball Gun/Master Volume
+  m_EditorClassIdentifier: FMODUnityEditor::FMODUnity.EditorParamRef
+  Name: Master Volume
+  StudioPath: 
+  Min: 0
+  Max: 1
+  Default: 0.8
+  ID:
+    data1: 661396678
+    data2: 3950397484
+  Type: 0
+  IsGlobal: 0
+  Labels: []
+  Exists: 1
+--- !u!114 &1234960458415949504
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c18180ecb35941f4682ae60107b85b7c, type: 3}
+  m_Name: bank:/Music.bank
+  m_EditorClassIdentifier: FMODUnityEditor::FMODUnity.EditorBankRef
+  Path: FMOD/UGJ132RaG/Build/Desktop/Music.bank
+  Name: Music
+  StudioPath: bank:/Music
+  lastModified: 639239677703813491
+  FileSizes:
+  - Name: Desktop
+    Value: 1217440
+  Exists: 1
 --- !u!114 &4497159621620907987
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -152,10 +336,10 @@ MonoBehaviour:
   Path: FMOD/UGJ132RaG/Build/Desktop/Master.bank
   Name: Master
   StudioPath: bank:/Master
-  lastModified: 639238681877700631
+  lastModified: 639239703409135731
   FileSizes:
   - Name: Desktop
-    Value: 1254432
+    Value: 1291872
   Exists: 1
 --- !u!114 &5312054929209964673
 MonoBehaviour:
@@ -176,6 +360,136 @@ MonoBehaviour:
     Data3: 503253130
     Data4: -1613872567
   Banks:
+  - {fileID: 7015340576067526718}
+  - {fileID: 4497159621620907987}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 1
+  Parameters:
+  - {fileID: 292455669245046885}
+  - {fileID: -856356657776859796}
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 0
+--- !u!114 &6633616764926815039
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: snapshot:/PauseMenu
+  m_EditorClassIdentifier: FMODUnityEditor::FMODUnity.EditorEventRef
+  Path: snapshot:/PauseMenu
+  Guid:
+    Data1: -689812389
+    Data2: 1139614796
+    Data3: 1323413940
+    Data4: 1078832680
+  Banks:
+  - {fileID: 4497159621620907987}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 0
+  Parameters: []
+  MinDistance: 0
+  MaxDistance: 0
+  Length: 0
+--- !u!114 &6774423322194446436
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: parameter:/Battle Theme/Music Volume
+  m_EditorClassIdentifier: FMODUnityEditor::FMODUnity.EditorParamRef
+  Name: Music Volume
+  StudioPath: 
+  Min: 0
+  Max: 1
+  Default: 0.8
+  ID:
+    data1: 2596693244
+    data2: 3637274112
+  Type: 0
+  IsGlobal: 0
+  Labels: []
+  Exists: 1
+--- !u!114 &7015340576067526718
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c18180ecb35941f4682ae60107b85b7c, type: 3}
+  m_Name: bank:/Weapons.bank
+  m_EditorClassIdentifier: FMODUnityEditor::FMODUnity.EditorBankRef
+  Path: FMOD/UGJ132RaG/Build/Desktop/Weapons.bank
+  Name: Weapons
+  StudioPath: bank:/Weapons
+  lastModified: 639239702316276810
+  FileSizes:
+  - Name: Desktop
+    Value: 39328
+  Exists: 1
+--- !u!114 &7909777565322923124
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/Pause
+  m_EditorClassIdentifier: FMODUnityEditor::FMODUnity.EditorEventRef
+  Path: event:/Pause
+  Guid:
+    Data1: 460258960
+    Data2: 1251480082
+    Data3: 779311752
+    Data4: 1721283452
+  Banks:
+  - {fileID: -7645060055249475443}
+  - {fileID: 4497159621620907987}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 0
+--- !u!114 &9106801891081748254
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/Click
+  m_EditorClassIdentifier: FMODUnityEditor::FMODUnity.EditorEventRef
+  Path: event:/Click
+  Guid:
+    Data1: 1455549796
+    Data2: 1160626756
+    Data3: 468755096
+    Data4: -210969248
+  Banks:
+  - {fileID: -7645060055249475443}
   - {fileID: 4497159621620907987}
   IsStream: 0
   Is3D: 0

@@ -4,6 +4,9 @@
 		<property name="name">
 			<value>Weapons</value>
 		</property>
+		<relationship name="masters">
+			<destination>{bd9e47a9-941f-45fc-a56f-6ed124fc34b4}</destination>
+		</relationship>
 		<relationship name="effectChain">
 			<destination>{7bc8217d-db0b-4607-9563-fa675fd3e3bb}</destination>
 		</relationship>
