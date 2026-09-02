@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.02.03.00">
+	<object class="MixerGroup" id="{f617f691-244c-4b3a-8149-95ef2901bf9f}">
+		<property name="name">
+			<value>Music</value>
+		</property>
+		<relationship name="automators">
+			<destination>{2b72cf8a-7208-4b60-ad3e-018545f570a4}</destination>
+		</relationship>
+		<relationship name="masters">
+			<destination>{7d93ef70-056a-478f-917a-6fcf4bb42961}</destination>
+		</relationship>
+		<relationship name="effectChain">
+			<destination>{0a18085a-f904-4891-8f1b-dff6e6b50976}</destination>
+		</relationship>
+		<relationship name="panner">
+			<destination>{fb7cb5aa-d237-4dc8-b01e-659071897e84}</destination>
+		</relationship>
+		<relationship name="output">
+			<destination>{05e23d76-123e-477d-9edd-2ad7307a6eea}</destination>
+		</relationship>
+	</object>
+	<object class="Automator" id="{2b72cf8a-7208-4b60-ad3e-018545f570a4}">
+		<property name="nameOfPropertyBeingAutomated">
+			<value>volume</value>
+		</property>
+	</object>
+	<object class="MixerBusEffectChain" id="{0a18085a-f904-4891-8f1b-dff6e6b50976}">
+		<relationship name="effects">
+			<destination>{654ac58f-e333-4c5e-8d99-0a90843dbb06}</destination>
+			<destination>{17c9bdf4-7be4-4b34-bb05-627643feec17}</destination>
+		</relationship>
+	</object>
+	<object class="MixerBusPanner" id="{fb7cb5aa-d237-4dc8-b01e-659071897e84}" />
+	<object class="MixerBusFader" id="{654ac58f-e333-4c5e-8d99-0a90843dbb06}" />
+	<object class="MultibandEqEffect" id="{17c9bdf4-7be4-4b34-bb05-627643feec17}">
+		<property name="color">
+			<value>Purple</value>
+		</property>
+		<property name="wetDryEnabled">
+			<value>true</value>
+		</property>
+		<property name="wetMix">
+			<value>0</value>
+		</property>
+		<property name="filterTypeA">
+			<value>4</value>
+		</property>
+		<property name="filterTypeE">
+			<value>1</value>
+		</property>
+		<property name="frequencyA">
+			<value>145</value>
+		</property>
+		<property name="frequencyE">
+			<value>1150</value>
+		</property>
+		<property name="qualityA">
+			<value>0.25999999</value>
+		</property>
+		<property name="qualityE">
+			<value>0.479999989</value>
+		</property>
+		<relationship name="automators">
+			<destination>{6d485668-3828-42c6-b7cd-3c50bc7e9c06}</destination>
+		</relationship>
+	</object>
+	<object class="Automator" id="{6d485668-3828-42c6-b7cd-3c50bc7e9c06}">
+		<property name="nameOfPropertyBeingAutomated">
+			<value>wetMix</value>
+		</property>
+	</object>
+</objects>

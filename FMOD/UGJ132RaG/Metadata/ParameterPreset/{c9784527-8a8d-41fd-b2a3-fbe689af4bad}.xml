@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.02.03.00">
+	<object class="ParameterPreset" id="{c9784527-8a8d-41fd-b2a3-fbe689af4bad}">
+		<property name="name">
+			<value>FX Volume</value>
+		</property>
+		<relationship name="folder">
+			<destination>{b59feb5b-7523-4531-8a49-25ac709a31cd}</destination>
+		</relationship>
+		<relationship name="parameter">
+			<destination>{2ec37060-3ad0-4b3f-82f2-68a161c73e00}</destination>
+		</relationship>
+	</object>
+	<object class="GameParameter" id="{2ec37060-3ad0-4b3f-82f2-68a161c73e00}">
+		<property name="initialValue">
+			<value>0.80000000000000004</value>
+		</property>
+	</object>
+</objects>
