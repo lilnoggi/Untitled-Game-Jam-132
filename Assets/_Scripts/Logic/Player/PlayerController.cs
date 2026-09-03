@@ -1,5 +1,6 @@
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.UI;
 
 [RequireComponent(typeof(Rigidbody2D))]
 public class PlayerController : MonoBehaviour
@@ -23,6 +24,9 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private float _minHopHeight = 0.5f;
     [SerializeField] private float _maxHopHeight = 1.8f;
 
+    [Header("UI References")]
+    [SerializeField] private Image _cooldownRadial;
+
     // References
     private Rigidbody2D _rb;
     private Vector2 _movementInput;
@@ -43,6 +47,7 @@ public class PlayerController : MonoBehaviour
     // Calculated values per hop
     private float _activeDashDuration;
     private float _activeHopHeight;
+    private float _activeTotalCooldown; // Used to calculate UI percentage
 
     // ---------------------------------------------------
 
@@ -134,9 +139,21 @@ public class PlayerController : MonoBehaviour
             }
         }
 
+        // --- COOLDOWN UI LOGIC ---
         if (_dashCooldownCounter > 0f)
         {
             _dashCooldownCounter -= Time.deltaTime;
+
+            if (_cooldownRadial != null && _activeTotalCooldown > 0f)
+            {
+                // Fill circle back up to 1.0 as the timer ticks down to 0
+                _cooldownRadial.fillAmount = 1f - (_dashCooldownCounter / _activeTotalCooldown);
+            }
+        }
+        else if (_cooldownRadial != null && _cooldownRadial.fillAmount < 1f)
+        {
+            // Ensure it snaps perfectly to full when ready
+            _cooldownRadial.fillAmount = 1f;
         }
     }
 
@@ -196,10 +213,19 @@ public class PlayerController : MonoBehaviour
         _activeDashDuration = Mathf.Lerp(_minDashDuration, _maxDashDuration, chargePercent);
         _activeHopHeight = Mathf.Lerp(_minHopHeight, _maxHopHeight, chargePercent);
 
-        _dashCooldownCounter = Mathf.Lerp(_minDashCooldown, _maxDashCooldown, chargePercent);
+        // Calculate and store the total cooldown for the UI logic
+        _activeTotalCooldown = Mathf.Lerp(_minDashCooldown, _maxDashCooldown, chargePercent);
+        _dashCooldownCounter = _activeTotalCooldown;
+
         _dashTimeCounter = _activeDashDuration;
 
         // Dash in the current movement direction, or the last known direction if stationary
         _dashDirection = _movementInput != Vector2.zero ? _movementInput.normalized : _lastMoveDirection;
+
+        // Instantly empty the UI when the jump fires
+        if (_cooldownRadial != null)
+        {
+            _cooldownRadial.fillAmount = 0f;
+        }
     }
 }
