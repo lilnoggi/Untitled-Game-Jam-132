@@ -56,7 +56,11 @@ public class CharacterStats : MonoBehaviour, IDamageable
             WaveSpawner.Instance.TriggerPhaseTwo(transform.position);
         }
         
-        // TODO: EconomyManager will call this _enemyData.PointsAwarded
+        // Award points to player
+        if (EconomyManager.Instance != null)
+        {
+            EconomyManager.Instance.AddScore(_enemyData.PointsAwarded);
+        }
 
         // Trigger fleeing state
         if (_enemyAI != null)
