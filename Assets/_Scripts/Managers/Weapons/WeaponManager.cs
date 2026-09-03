@@ -10,6 +10,9 @@ public class WeaponManager : MonoBehaviour
     [SerializeField] private WeaponData[] _availableWeapons; // ScriptableObject data for each weapon
     [SerializeField] private Transform _weaponHolder; // The central point the weapons orbit around
 
+    [Header("UI References")]
+    [SerializeField] private CrosshairController _crosshair;
+
     private GameObject[] _instantiatedWeapons;
     private int _currentWeaponIndex = 0;
     private InputSystem_Actions _inputActions;
@@ -142,6 +145,12 @@ public class WeaponManager : MonoBehaviour
 
             // Pass the speed and damage from the weapon to the bullet
             bullet.GetComponent<ProjectileBehaviour>().InitialiseProjectile(data.BulletSpeed, data.Damage);
+
+            // Trigger crosshair animatino
+            if (_crosshair != null)
+            {
+                _crosshair.OnFireWeapon();
+            }
         }
     }
 
