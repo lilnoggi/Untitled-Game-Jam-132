@@ -28,6 +28,7 @@ public class WeaponManager : MonoBehaviour
 
     // Firing state variables
     private bool _isFiring;
+    private bool _isWaterDepleted = false;
     private float _timeSinceLastFire = 0f;
 
     // ----------------------------------------------------------
@@ -154,10 +155,22 @@ public class WeaponManager : MonoBehaviour
 
     private void HandleWaterGun(WeaponData data)
     {
-        Transform vfx = _instantiatedWeapons[_currentWeaponIndex].transform.Find("SplashVFX");
+        Transform vfx = _instantiatedWeapons[_currentWeaponIndex].transform.Find("Splash_VFX");
         Transform firePoint = _instantiatedWeapons[_currentWeaponIndex].transform.Find("FirePoint");
 
-        bool isSpraying = _isFiring && _currentWater > 0;
+        // Reset the overheat lock when player lets go of the mouse
+        if (!_isFiring)
+        {
+            _isWaterDepleted = false;
+        }
+
+        // Lock gun if it is out of water
+        if (_currentWater <= 0)
+        {
+            _isWaterDepleted = true;
+        }
+
+        bool isSpraying = _isFiring && _currentWater > 0 && !_isWaterDepleted;
 
         // Toggle VFX
         if (vfx != null)
@@ -245,20 +258,17 @@ public class WeaponManager : MonoBehaviour
 
     private void FireSplashWeapon(WeaponData data, Transform firePoint)
     {
-        // Spawn splash effect at the barrel
-        if (data.ProjectilePrefab != null)
-        {
-            PoolManager.Instance.SpawnFromPool(data.ProjectilePrefab, firePoint.position, firePoint.rotation);
-        }
-
         // Detect all colliders within the water's maximum reach
         Collider2D[] hits = Physics2D.OverlapCircleAll(firePoint.position, data.BulletSpeed);
 
         foreach (Collider2D hit in hits)
         {
-            // Check if the enemy is actually in fron of the barrel
-            Vector2 directionToTarget = (hit.transform.position - firePoint.position).normalized;
-            float angleToTarget = Vector2.Angle(firePoint.right, directionToTarget);
+            // Calculate using the exact closest edge of the enemy collider
+            Vector2 closestEdge = hit.ClosestPoint(firePoint.position);
+            Vector2 directionToTarget = (closestEdge - (Vector2)firePoint.position).normalized;
+
+            // If the gun barrel is literally inside an enemy, a hit is guaranteed
+            float angleToTarget = directionToTarget == Vector2.zero ? 0f : Vector2.Angle(firePoint.right, directionToTarget);
 
             if (angleToTarget <= data.SpreadAngle)
             {
@@ -266,7 +276,7 @@ public class WeaponManager : MonoBehaviour
                 if (damageable != null)
                 {
                     // Calcuilate damage falloff based on distance
-                    float distance = Vector2.Distance(firePoint.position, hit.transform.position);
+                    float distance = Vector2.Distance(firePoint.position, closestEdge);
                     float damageMultiplier = 1f - (distance / data.BulletSpeed);
 
                     // Apply damage and clamp it
