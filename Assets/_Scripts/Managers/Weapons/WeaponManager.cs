@@ -1,5 +1,6 @@
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.UI;
 
 /// <summary>
 /// Handles weapon cycling, mouse-aiming rotation, and firing logic for the player.
@@ -10,10 +11,17 @@ public class WeaponManager : MonoBehaviour
     [SerializeField] private WeaponData[] _availableWeapons; // ScriptableObject data for each weapon
     [SerializeField] private Transform _weaponHolder; // The central point the weapons orbit around
 
+    [Header("Water Gun Setup")]
+    private Slider _waterSlider;
+    [SerializeField] private float _maxWater = 100f;
+    [SerializeField] private float _waterDrainRate = 25f;
+    [SerializeField] private float _waterRefillRate = 45f; // Charge faster than drain
+
     [Header("UI References")]
     [SerializeField] private CrosshairController _crosshair;
 
     private GameObject[] _instantiatedWeapons;
+    private float _currentWater;
     private int _currentWeaponIndex = 0;
     private InputSystem_Actions _inputActions;
     private Camera _mainCamera;
@@ -70,7 +78,21 @@ public class WeaponManager : MonoBehaviour
                 weapon.transform.localScale = Vector3.one;
                 weapon.SetActive(false);
                 _instantiatedWeapons[i] = weapon;
+
+                // Get the slider reference from the water gun
+                if (_availableWeapons[i].Type == WeaponType.WaterGun)
+                {
+                    _waterSlider = weapon.GetComponentInChildren<Slider>(true);
+                }
             }
+        }
+
+        // Initialise the slider UI 
+        _currentWater = _maxWater;
+        if (_waterSlider != null)
+        {
+            _waterSlider.maxValue = _maxWater;
+            _waterSlider.value = _currentWater;
         }
 
         EquipWeapon(_currentWeaponIndex);
@@ -116,10 +138,56 @@ public class WeaponManager : MonoBehaviour
 
         WeaponData currentData = _availableWeapons[_currentWeaponIndex];
 
-        // Check if player is holding click and enough time has passed based on the fire rate
-        if (_isFiring && _timeSinceLastFire >= currentData.FireRate)
+        if (currentData.Type == WeaponType.WaterGun)
         {
-            FireWeapon(currentData);
+            HandleWaterGun(currentData);
+        }
+        else
+        {
+            // Check if player is holding click and enough time has passed based on the fire rate
+            if (_isFiring && _timeSinceLastFire >= currentData.FireRate)
+            {
+                FireWeapon(currentData);
+            }
+        }
+    }
+
+    private void HandleWaterGun(WeaponData data)
+    {
+        Transform vfx = _instantiatedWeapons[_currentWeaponIndex].transform.Find("SplashVFX");
+        Transform firePoint = _instantiatedWeapons[_currentWeaponIndex].transform.Find("FirePoint");
+
+        bool isSpraying = _isFiring && _currentWater > 0;
+
+        // Toggle VFX
+        if (vfx != null)
+        {
+            vfx.gameObject.SetActive(isSpraying);
+        }
+
+        if (isSpraying)
+        {
+            _currentWater -= _waterDrainRate * Time.deltaTime;
+
+            // Still apply damage based on fire rate
+            if (_timeSinceLastFire >= data.FireRate)
+            {
+                _timeSinceLastFire = 0f;
+                if (firePoint != null)
+                {
+                    FireSplashWeapon(data, firePoint);
+                }
+            }
+        }
+        else
+        {
+            _currentWater += _waterRefillRate * Time.deltaTime;
+        }
+
+        _currentWater = Mathf.Clamp(_currentWater, 0, _maxWater);
+        if (_waterSlider != null)
+        {
+            _waterSlider.value = _currentWater;
         }
     }
 
@@ -134,22 +202,77 @@ public class WeaponManager : MonoBehaviour
         // Find the specific FirePoint transform on the currently active weapon
         Transform firePoint = _instantiatedWeapons[_currentWeaponIndex].transform.Find("FirePoint");
 
-        if (firePoint != null && data.ProjectilePrefab != null)
+        // If fire point is null, return
+        if (firePoint == null)
+        {
+            return;
+        }
+
+        // Branch based on type of weapon equipped
+        if (data.Type == WeaponType.WaterGun)
+        {
+            FireSplashWeapon(data, firePoint);
+        }
+        else if (data.ProjectilePrefab != null)
+        {
+            FireProjectileWeapon(data, firePoint);
+        }
+
+        // Trigger crosshair animatino
+        if (_crosshair != null)
+        {
+            _crosshair.OnFireWeapon();
+        }
+    }
+
+    // Method for standard projectile guns
+    private void FireProjectileWeapon(WeaponData data, Transform firePoint)
+    {
+        if (firePoint != null)
         {
             // Calculate a random spread angle based on the weapon data
             float randomSpread = Random.Range(-data.SpreadAngle, data.SpreadAngle);
             Quaternion spreadRotation = firePoint.rotation * Quaternion.Euler(0, 0, randomSpread);
             
+            // TODO: Add spread rotation to SpawnFromPool!!!!!!!!!!!!
             // Get a bullet from the pool manager
             GameObject bullet = PoolManager.Instance.SpawnFromPool(data.ProjectilePrefab, firePoint.position, firePoint.rotation);
 
             // Pass the speed and damage from the weapon to the bullet
             bullet.GetComponent<ProjectileBehaviour>().InitialiseProjectile(data.BulletSpeed, data.Damage);
+        }
+    }
 
-            // Trigger crosshair animatino
-            if (_crosshair != null)
+    private void FireSplashWeapon(WeaponData data, Transform firePoint)
+    {
+        // Spawn splash effect at the barrel
+        if (data.ProjectilePrefab != null)
+        {
+            PoolManager.Instance.SpawnFromPool(data.ProjectilePrefab, firePoint.position, firePoint.rotation);
+        }
+
+        // Detect all colliders within the water's maximum reach
+        Collider2D[] hits = Physics2D.OverlapCircleAll(firePoint.position, data.BulletSpeed);
+
+        foreach (Collider2D hit in hits)
+        {
+            // Check if the enemy is actually in fron of the barrel
+            Vector2 directionToTarget = (hit.transform.position - firePoint.position).normalized;
+            float angleToTarget = Vector2.Angle(firePoint.right, directionToTarget);
+
+            if (angleToTarget <= data.SpreadAngle)
             {
-                _crosshair.OnFireWeapon();
+                IDamageable damageable = hit.GetComponent<IDamageable>();
+                if (damageable != null)
+                {
+                    // Calcuilate damage falloff based on distance
+                    float distance = Vector2.Distance(firePoint.position, hit.transform.position);
+                    float damageMultiplier = 1f - (distance / data.BulletSpeed);
+
+                    // Apply damage and clamp it
+                    float calculatedDamage = Mathf.Max(data.Damage * damageMultiplier, 1f);
+                    damageable.TakeDamage(calculatedDamage);
+                }
             }
         }
     }
