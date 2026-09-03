@@ -17,7 +17,8 @@ public class UIManager : MonoBehaviour
 
     [Header("Boss UI")]
     [SerializeField] private GameObject _bossHealthContainer;
-    [SerializeField] private Slider _bossHealthBar;
+    [SerializeField] private Image _bossHealthBar;
+    [SerializeField] private Sprite[] _bossHealthSprites; // Holds the 6 health bar sprites
 
     [Header("Endgame Screens")]
     [SerializeField] private GameObject _victoryPanel;
@@ -97,10 +98,19 @@ public class UIManager : MonoBehaviour
 
     public void UpdateBossHealthBar(float currentHealth, float maxHealth)
     {
-        if (_bossHealthBar != null)
+        if (_bossHealthBar != null && _bossHealthSprites.Length > 0)
         {
-            _bossHealthBar.maxValue = maxHealth;
-            _bossHealthBar.value = currentHealth;
+            // Calculate health percentage
+            float healthPercentage = currentHealth / maxHealth;
+
+            // Map percentage to an array index
+            int index = Mathf.FloorToInt(healthPercentage * (_bossHealthSprites.Length -1));
+
+            // Clamp to prevent errors when health hits 0 or 100
+            index = Mathf.Clamp(index, 0, _bossHealthSprites.Length - 1);
+
+            // Set the sprite
+            _bossHealthBar.sprite = _bossHealthSprites[index];
         }
     }
 

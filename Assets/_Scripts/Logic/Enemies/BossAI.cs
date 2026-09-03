@@ -191,7 +191,11 @@ public class BossAI : MonoBehaviour, IDamageable
         _isDefeated = true;
         UIManager.Instance.ToggleBossHealthBar(false);
 
-        // Award points here
+        // Award points 
+        if (EconomyManager.Instance != null)
+        {
+            EconomyManager.Instance.AddScore(_bossData.PointsAwarded);
+        }
 
         WaveSpawner.Instance.OnEnemyDefeated();
         Destroy(gameObject);

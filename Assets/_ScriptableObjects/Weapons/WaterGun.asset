@@ -17,6 +17,6 @@ MonoBehaviour:
   _fireRate: 0.15
   _damage: 1000
   _spreadAngle: 5
-  _bulletSpeed: 20
-  _projectilePrefab: {fileID: 1630189201451078171, guid: 31c57816f4ec6654ea36fc9ee95f4442, type: 3}
+  _bulletSpeed: 3
+  _projectilePrefab: {fileID: 0}
   _weaponPrefab: {fileID: 9022200150014508155, guid: c17811fbe6023394aa1e37ec559cb198, type: 3}
