@@ -1,13 +1,25 @@
 using UnityEngine;
-using UnityEngine.InputSystem;
 
 public class CrosshairController : MonoBehaviour
 {
+    [Header("Crosshair Graphics")]
+    [SerializeField] private Sprite _defaultCrosshair;
+    [SerializeField] private Sprite _targetLockCrosshair;
+
+    [Header("Targeting")]
+    [SerializeField] private LayerMask _enemyLayer;
+
+    [Header("Animation Settings")]
+    [SerializeField] private float _spinSpeed = -90f; // Negative for clockwise spin
+
     // Reference to Input Actions
     private InputSystem_Actions _inputActions;
 
     // Reference to Camera
     private Camera _mainCamera;
+
+    // Reference to SpriteRenderer
+    private SpriteRenderer _sr;
 
     // ---------------------------------------------
 
@@ -18,6 +30,7 @@ public class CrosshairController : MonoBehaviour
     {
         _inputActions = new InputSystem_Actions();
         _mainCamera = Camera.main;
+        _sr = GetComponent<SpriteRenderer>();
 
         // Hide the default OS cursor
         Cursor.visible = false;
@@ -47,17 +60,31 @@ public class CrosshairController : MonoBehaviour
         // Convert to world space and update the sprite's position
         Vector2 worldPos = _mainCamera.ScreenToWorldPoint(new Vector3(screenMousePos.x, screenMousePos.y, _mainCamera.nearClipPlane));
         transform.position = worldPos;
+
+        // Apply constant radar spin
+        transform.Rotate(0, 0, _spinSpeed * Time.deltaTime);
+
+        // Check for enemies directly under crosshair world pos
+        Collider2D hit = Physics2D.OverlapPoint(worldPos, _enemyLayer);
+
+        // Trigger sprite swap
+        OnHoverEnemy(hit != null);
     }
 
     // --- HOOKS FOR FUTURE EXPANXIONS ---
 
     public void OnFireWeapon()
     {
-        // TODO: Add tweening logic to scale when the Carrot Launcher fires
+        // Recoil snap
+        transform.Rotate(0, 0, -45f);
     }
 
     public void OnHoverEnemy(bool isHovering)
     {
-        // TODO: Add SpriteRenderer colour change logic when hovering over enemies
+        if (_sr != null)
+        {
+            // Swap between default and locked sprites
+            _sr.sprite = isHovering ? _targetLockCrosshair : _defaultCrosshair;
+        }
     }
 }

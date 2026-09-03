@@ -207,7 +207,7 @@ public class BossAI : MonoBehaviour, IDamageable
     {
         if (collision.CompareTag("RabbitHole") && !_isDefeated)
         {
-            VictoryConditionsManager.Instance.DamageForest(50f);
+            VictoryConditionsManager.Instance.DamageForest(20f);
         }   
     }
 }
