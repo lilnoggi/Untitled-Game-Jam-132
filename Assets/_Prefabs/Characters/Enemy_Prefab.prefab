@@ -225,3 +225,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 47c4f49da647ffd4d953cc693b377ce4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::EnemyAI
+  _litterPrefab: {fileID: 8036354783125650501, guid: 4a411ab82624a844dab355ca77718c07, type: 3}

@@ -4,6 +4,7 @@ using UnityEngine;
 [RequireComponent(typeof(CharacterStats))]
 public class EnemyAI : MonoBehaviour
 {
+    [SerializeField] private GameObject _litterPrefab;
     private EnemyData _currentData;
     private Transform _target;
     private BoxCollider2D _roamArea;
@@ -112,6 +113,12 @@ public class EnemyAI : MonoBehaviour
         // If the enemy is close enough to their random spot, pick a new one
         if (Vector2.Distance(transform.position, _currentRoamTarget) < 0.5f)
         {
+            // Spawn pooled litter if this is a teenager
+            if (_currentData.Type == EnemyType.LitteringTeenager && _litterPrefab != null)
+            {
+                PoolManager.Instance.SpawnFromPool(_litterPrefab, transform.position, Quaternion.identity);    
+            }
+
             PickNewRoamTarget();
 
             // TODO: Trigger specific abilities here (take picture, drop flag, throw litter)
