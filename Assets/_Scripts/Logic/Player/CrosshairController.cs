@@ -54,6 +54,11 @@ public class CrosshairController : MonoBehaviour
 
     private void Update()
     {
+        if (Time.timeScale == 0f)
+        {
+            return;
+        }
+        
         // Read the screen-space mouse position from the Look Action
         Vector2 screenMousePos = _inputActions.Player.Look.ReadValue<Vector2>();
 

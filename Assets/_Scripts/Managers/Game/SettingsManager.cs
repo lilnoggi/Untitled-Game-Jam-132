@@ -29,6 +29,11 @@ public class SettingsManager : MonoBehaviour
         LoadSettings();
     }
 
+    void OnDisable()
+    {
+        SaveSettings();
+    }
+
     // --- RESOLUTION ---
 
     private void SetupResolutionDropdown()
@@ -109,7 +114,7 @@ public class SettingsManager : MonoBehaviour
 
         if (PlayerPrefs.HasKey("FullscreenPreference"))
         {
-            bool isFullscreen = System.Convert.ToBoolean(PlayerPrefs.GetInt("FullscreenPreferences"));
+            bool isFullscreen = System.Convert.ToBoolean(PlayerPrefs.GetInt("FullscreenPreference"));
             _fullscreenToggle.isOn = isFullscreen;
             Screen.fullScreen = isFullscreen;
         }

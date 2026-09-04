@@ -48,7 +48,14 @@ public class WeaponManager : MonoBehaviour
         _inputActions.Player.CycleNext.performed += CycleNext;
 
         // Read the Left-MB hold state from the Attack action
-        _inputActions.Player.Attack.started += ctx => _isFiring = true;
+        // Prevent firing from starting if paused
+        _inputActions.Player.Attack.started += ctx =>
+        {
+            if (Time.timeScale > 0f)
+            {
+                _isFiring = true;
+            }
+        };
         _inputActions.Player.Attack.canceled += ctx => _isFiring = false;
     }
 
@@ -101,6 +108,12 @@ public class WeaponManager : MonoBehaviour
 
     private void Update()
     {
+        // Stop gun rotation and fireing logic while paused
+        if (Time.timeScale == 0f)
+        {
+            return;
+        }
+
         AimWeapon();
         HandleShooting();
     }
@@ -289,12 +302,22 @@ public class WeaponManager : MonoBehaviour
 
     private void CycleNext(InputAction.CallbackContext context)
     {
+        if (Time.timeScale == 0f)
+        {
+            return;
+        }
+
         _currentWeaponIndex = (_currentWeaponIndex + 1) % _availableWeapons.Length;
         EquipWeapon(_currentWeaponIndex);
     }
 
     private void CyclePrevious(InputAction.CallbackContext context)
     {
+        if (Time.timeScale == 0f)
+        {
+            return;
+        }
+        
         _currentWeaponIndex--;
         if (_currentWeaponIndex < 0)
         {
