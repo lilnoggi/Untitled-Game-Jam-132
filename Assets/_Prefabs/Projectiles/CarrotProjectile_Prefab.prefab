@@ -140,7 +140,7 @@ MonoBehaviour:
       Data2: 1205951944
       Data3: -1067259974
       Data4: -92820225
-    Path: event:/Carrot Gun
+    Path: event:/Weapons/Carrot Gun
   Event: 
   EventPlayTrigger: 11
   EventStopTrigger: 0

@@ -1,8 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <objects serializationModel="Studio.02.03.00">
 	<object class="AudioFile" id="{f9f194dd-07c6-466a-9a43-48f330a223dc}">
+		<property name="color">
+			<value>Cyan Light 1</value>
+		</property>
 		<property name="assetPath">
-			<value>click.wav</value>
+			<value>UI/UIchimeUp.wav</value>
 		</property>
 		<property name="frequencyInKHz">
 			<value>48</value>

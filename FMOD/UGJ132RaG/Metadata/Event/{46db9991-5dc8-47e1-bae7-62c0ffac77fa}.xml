@@ -1,6 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <objects serializationModel="Studio.02.03.00">
 	<object class="Event" id="{46db9991-5dc8-47e1-bae7-62c0ffac77fa}">
+		<property name="color">
+			<value>Red Light 1</value>
+		</property>
 		<property name="name">
 			<value>Carrot Gun</value>
 		</property>
@@ -8,7 +11,7 @@
 			<value>1</value>
 		</property>
 		<relationship name="folder">
-			<destination>{1822407b-797f-4cf4-ab37-2926f1d61fa3}</destination>
+			<destination>{9b6c2a5d-5a96-4aee-8498-fcdb148df2b3}</destination>
 		</relationship>
 		<relationship name="mixer">
 			<destination>{311c2cc8-7a39-4620-8bcd-34baed642a50}</destination>
@@ -98,12 +101,13 @@
 			<destination>{27e7d426-dc5b-497d-8ba0-be89c65a8ae2}</destination>
 			<destination>{fdff5780-49b8-40cd-b3ad-04eb2473c099}</destination>
 			<destination>{1b672658-e7b2-498c-994d-2e6742e56e43}</destination>
-			<destination>{4da7f8a0-8f67-4362-9fa9-0f3e84dd750f}</destination>
-			<destination>{36bd3de1-60b5-4300-8628-97657d93b2d5}</destination>
 		</relationship>
 	</object>
 	<object class="MixerBusPanner" id="{63dc72f1-ff6f-4c4c-9d99-e7e10facd96f}" />
 	<object class="SingleSound" id="{84f17cda-1ed0-4d86-bdff-4854297643fb}">
+		<property name="color">
+			<value>Red Light 2</value>
+		</property>
 		<relationship name="audioFile">
 			<destination>{b0fce1d6-77a5-414a-9444-c512e9fbfda1}</destination>
 		</relationship>
@@ -121,22 +125,6 @@
 		</property>
 		<relationship name="preset">
 			<destination>{dbd8cbad-7798-4b80-ba8a-99e44d5a6c3b}</destination>
-		</relationship>
-	</object>
-	<object class="ProxyEffect" id="{4da7f8a0-8f67-4362-9fa9-0f3e84dd750f}">
-		<property name="inputFormat">
-			<value>1</value>
-		</property>
-		<relationship name="preset">
-			<destination>{24800811-f46f-4f8c-934c-a15ab0442541}</destination>
-		</relationship>
-	</object>
-	<object class="ProxyEffect" id="{36bd3de1-60b5-4300-8628-97657d93b2d5}">
-		<property name="inputFormat">
-			<value>1</value>
-		</property>
-		<relationship name="preset">
-			<destination>{888f4d02-fb5d-4c0f-83b6-b530918faf81}</destination>
 		</relationship>
 	</object>
 </objects>

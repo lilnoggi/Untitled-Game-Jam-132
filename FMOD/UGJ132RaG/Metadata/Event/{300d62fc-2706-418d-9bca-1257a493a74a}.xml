@@ -1,6 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <objects serializationModel="Studio.02.03.00">
 	<object class="Event" id="{300d62fc-2706-418d-9bca-1257a493a74a}">
+		<property name="color">
+			<value>Red Light 1</value>
+		</property>
 		<property name="name">
 			<value>Water Gun</value>
 		</property>
@@ -8,7 +11,7 @@
 			<value>1</value>
 		</property>
 		<relationship name="folder">
-			<destination>{1822407b-797f-4cf4-ab37-2926f1d61fa3}</destination>
+			<destination>{9b6c2a5d-5a96-4aee-8498-fcdb148df2b3}</destination>
 		</relationship>
 		<relationship name="mixer">
 			<destination>{74ab022c-c0fa-4052-8eff-582c691cfc31}</destination>
@@ -32,7 +35,6 @@
 			<destination>{0cd2f343-0241-4a81-8f12-6cd0778b6c49}</destination>
 		</relationship>
 		<relationship name="banks">
-			<destination>{b1eb4f33-c274-45b1-9f85-8d1bffbb969f}</destination>
 			<destination>{d037a9d2-8952-457a-af25-41691403438b}</destination>
 		</relationship>
 	</object>
@@ -110,6 +112,9 @@
 	</object>
 	<object class="MixerBusPanner" id="{4b5899a9-ef60-43f9-97a3-9861a9060632}" />
 	<object class="SingleSound" id="{9e1c1c86-9643-4170-86a5-7f4120d3853d}">
+		<property name="color">
+			<value>Red Light 2</value>
+		</property>
 		<relationship name="automators">
 			<destination>{d7ffd9b6-b05e-4690-be0b-33ecd7c29b01}</destination>
 		</relationship>

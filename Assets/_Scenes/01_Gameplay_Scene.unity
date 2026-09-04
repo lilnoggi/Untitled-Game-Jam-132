@@ -1794,7 +1794,7 @@ MonoBehaviour:
       Data2: 1180230544
       Data3: -1280556121
       Data4: -1811862418
-    Path: event:/Battle Theme
+    Path: event:/Music/Battle Theme
   Event: 
   EventPlayTrigger: 1
   EventStopTrigger: 2
@@ -3735,6 +3735,8 @@ GameObject:
   - component: {fileID: 1507882860}
   - component: {fileID: 1507882862}
   - component: {fileID: 1507882861}
+  - component: {fileID: 1507882863}
+  - component: {fileID: 1507882864}
   m_Layer: 5
   m_Name: Victory_Panel
   m_TagString: Untagged
@@ -3801,6 +3803,50 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1507882859}
   m_CullTransparentMesh: 1
+--- !u!114 &1507882863
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1507882859}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 708c5e3b87c07a5418e9f7b785fa6df6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: '::'
+  eventEmitter: {fileID: 519420033}
+--- !u!114 &1507882864
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1507882859}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9a6610d2e704f1648819acc8d7460285, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: FMODUnity::FMODUnity.StudioEventEmitter
+  CollisionTag: 
+  EventReference:
+    Guid:
+      Data1: -691843400
+      Data2: 1077884750
+      Data3: 315287434
+      Data4: -226378145
+    Path: event:/Music/Victory
+  Event: 
+  EventPlayTrigger: 1
+  EventStopTrigger: 2
+  AllowFadeout: 1
+  TriggerOnce: 1
+  Preload: 0
+  NonRigidbodyVelocity: 0
+  Params: []
+  OverrideAttenuation: 0
+  OverrideMinDistance: 1
+  OverrideMaxDistance: 20
 --- !u!1 &1554056161
 GameObject:
   m_ObjectHideFlags: 0
@@ -4419,6 +4465,7 @@ GameObject:
   - component: {fileID: 1717585471}
   - component: {fileID: 1717585473}
   - component: {fileID: 1717585472}
+  - component: {fileID: 1717585474}
   m_Layer: 5
   m_Name: Defeat_Panel
   m_TagString: Untagged
@@ -4485,6 +4532,19 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1717585470}
   m_CullTransparentMesh: 1
+--- !u!114 &1717585474
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1717585470}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 708c5e3b87c07a5418e9f7b785fa6df6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: '::'
+  eventEmitter: {fileID: 519420033}
 --- !u!1 &1747366511
 GameObject:
   m_ObjectHideFlags: 0
@@ -5230,6 +5290,70 @@ PrefabInstance:
       propertyPath: _cooldownRadial
       value: 
       objectReference: {fileID: 1685419406}
+    - target: {fileID: 4153636223615143416, guid: 3feed2b6fc2517149be969a852ad8b65, type: 3}
+      propertyPath: _maxDashCooldown
+      value: 0.8
+      objectReference: {fileID: 0}
+    - target: {fileID: 4153636223615143416, guid: 3feed2b6fc2517149be969a852ad8b65, type: 3}
+      propertyPath: eventEmitter.Path
+      value: event:/PCMovement/Dash
+      objectReference: {fileID: 0}
+    - target: {fileID: 4153636223615143416, guid: 3feed2b6fc2517149be969a852ad8b65, type: 3}
+      propertyPath: hopSoundEvent.Path
+      value: event:/PCMovement/Dash
+      objectReference: {fileID: 0}
+    - target: {fileID: 4153636223615143416, guid: 3feed2b6fc2517149be969a852ad8b65, type: 3}
+      propertyPath: hopSoundEffect.Path
+      value: event:/PCMovement/Dash
+      objectReference: {fileID: 0}
+    - target: {fileID: 4153636223615143416, guid: 3feed2b6fc2517149be969a852ad8b65, type: 3}
+      propertyPath: eventEmitter.Guid.Data1
+      value: -2130097809
+      objectReference: {fileID: 0}
+    - target: {fileID: 4153636223615143416, guid: 3feed2b6fc2517149be969a852ad8b65, type: 3}
+      propertyPath: eventEmitter.Guid.Data2
+      value: 1328292906
+      objectReference: {fileID: 0}
+    - target: {fileID: 4153636223615143416, guid: 3feed2b6fc2517149be969a852ad8b65, type: 3}
+      propertyPath: eventEmitter.Guid.Data3
+      value: 817292949
+      objectReference: {fileID: 0}
+    - target: {fileID: 4153636223615143416, guid: 3feed2b6fc2517149be969a852ad8b65, type: 3}
+      propertyPath: eventEmitter.Guid.Data4
+      value: 2013666766
+      objectReference: {fileID: 0}
+    - target: {fileID: 4153636223615143416, guid: 3feed2b6fc2517149be969a852ad8b65, type: 3}
+      propertyPath: hopSoundEvent.Guid.Data1
+      value: -2130097809
+      objectReference: {fileID: 0}
+    - target: {fileID: 4153636223615143416, guid: 3feed2b6fc2517149be969a852ad8b65, type: 3}
+      propertyPath: hopSoundEvent.Guid.Data2
+      value: 1328292906
+      objectReference: {fileID: 0}
+    - target: {fileID: 4153636223615143416, guid: 3feed2b6fc2517149be969a852ad8b65, type: 3}
+      propertyPath: hopSoundEvent.Guid.Data3
+      value: 817292949
+      objectReference: {fileID: 0}
+    - target: {fileID: 4153636223615143416, guid: 3feed2b6fc2517149be969a852ad8b65, type: 3}
+      propertyPath: hopSoundEvent.Guid.Data4
+      value: 2013666766
+      objectReference: {fileID: 0}
+    - target: {fileID: 4153636223615143416, guid: 3feed2b6fc2517149be969a852ad8b65, type: 3}
+      propertyPath: hopSoundEffect.Guid.Data1
+      value: -2130097809
+      objectReference: {fileID: 0}
+    - target: {fileID: 4153636223615143416, guid: 3feed2b6fc2517149be969a852ad8b65, type: 3}
+      propertyPath: hopSoundEffect.Guid.Data2
+      value: 1328292906
+      objectReference: {fileID: 0}
+    - target: {fileID: 4153636223615143416, guid: 3feed2b6fc2517149be969a852ad8b65, type: 3}
+      propertyPath: hopSoundEffect.Guid.Data3
+      value: 817292949
+      objectReference: {fileID: 0}
+    - target: {fileID: 4153636223615143416, guid: 3feed2b6fc2517149be969a852ad8b65, type: 3}
+      propertyPath: hopSoundEffect.Guid.Data4
+      value: 2013666766
+      objectReference: {fileID: 0}
     - target: {fileID: 7105334974889131882, guid: 3feed2b6fc2517149be969a852ad8b65, type: 3}
       propertyPath: _crosshair
       value: 
