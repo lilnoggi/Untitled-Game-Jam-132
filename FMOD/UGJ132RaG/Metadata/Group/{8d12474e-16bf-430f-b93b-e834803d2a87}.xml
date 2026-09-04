@@ -2,7 +2,7 @@
 <objects serializationModel="Studio.02.03.00">
 	<object class="MixerGroup" id="{8d12474e-16bf-430f-b93b-e834803d2a87}">
 		<property name="name">
-			<value>Weapons</value>
+			<value>SFX</value>
 		</property>
 		<relationship name="masters">
 			<destination>{bd9e47a9-941f-45fc-a56f-6ed124fc34b4}</destination>

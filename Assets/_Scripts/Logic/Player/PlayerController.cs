@@ -1,6 +1,8 @@
 using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.UI;
+using FMODUnity;
+using FMOD.Studio;
 
 [RequireComponent(typeof(Rigidbody2D))]
 public class PlayerController : MonoBehaviour
@@ -18,11 +20,14 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private float _maxDashDuration = 0.4f;
     [SerializeField] private float _minDashCooldown = 0.2f;
     [SerializeField] private float _maxDashCooldown = 0.8f;
+    
 
     [Header("Hop Settings")]
     [SerializeField] private Transform _playerVisuals;
     [SerializeField] private float _minHopHeight = 0.5f;
     [SerializeField] private float _maxHopHeight = 1.8f;
+    [SerializeField] private EventReference hopSoundEvent;
+
 
     [Header("UI References")]
     [SerializeField] private Image _cooldownRadial;
@@ -227,5 +232,7 @@ public class PlayerController : MonoBehaviour
         {
             _cooldownRadial.fillAmount = 0f;
         }
+        // Plays designated Hop Sound Effect
+        RuntimeManager.PlayOneShot(hopSoundEvent);
     }
 }
