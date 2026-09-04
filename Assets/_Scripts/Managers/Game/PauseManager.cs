@@ -18,6 +18,7 @@ public class PauseManager : MonoBehaviour
 
     private void Start()
     {
+        _pauseMenuPanel.SetActive(false);
         _settingsPanel.SetActive(false);
     }
 
@@ -83,5 +84,10 @@ public class PauseManager : MonoBehaviour
     public void CloseSettings()
     {
         _settingsPanel.SetActive(false);
+    }
+
+    public void QuitGame()
+    {
+        Application.Quit();
     }
 }

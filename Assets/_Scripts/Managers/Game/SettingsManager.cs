@@ -10,8 +10,12 @@ public class SettingsManager : MonoBehaviour
     [SerializeField] private Toggle _fullscreenToggle;
     [SerializeField] private Slider _musicSlider;
     [SerializeField] private Slider _sfxSlider;
+    [SerializeField] private Toggle _musicMuteToggle;
+    [SerializeField] private Toggle _sfxMuteToggle;
 
     private Resolution[] _resolutions;
+    private bool _isMusicMuted;
+    private bool _isSfxMuted;
 
     // FMOD VARIABLES
     private FMOD.Studio.VCA _musicVCA;
@@ -85,10 +89,26 @@ public class SettingsManager : MonoBehaviour
         _musicVCA.setVolume(volume);
     }
 
+    public void ToggleMusicMute(bool isMuted)
+    {
+        _isMusicMuted = isMuted;
+
+        // Force volume to 0 if muted, otherwise restore to whatever the slider is currently on
+        _musicVCA.setVolume(_isMusicMuted ? 0f : _musicSlider.value);
+    }
+
     public void SetSFXVolume(float volume)
     {
         // Same again here but for SFX
         _sfxVCA.setVolume(volume);
+    }
+
+    public void ToggleSfxMute(bool isMuted)
+    {
+        _isSfxMuted = isMuted;
+
+        // Force volume to 0 if muted, otherwise restore to whatever the slider is currently on
+        _sfxVCA.setVolume(_isSfxMuted ? 0f : _sfxSlider.value);
     }
 
     // --- SAVE & LOAD ---
@@ -100,6 +120,11 @@ public class SettingsManager : MonoBehaviour
         PlayerPrefs.SetInt("FullscreenPreference", System.Convert.ToInt32(Screen.fullScreen));
         PlayerPrefs.SetFloat("MusicVolume", _musicSlider.value);
         PlayerPrefs.SetFloat("SFXVolume", _sfxSlider.value);
+
+        // Save the mute states (1 for true, 0 for false)
+        PlayerPrefs.SetInt("MusicMute", _isMusicMuted ? 1 : 0);
+        PlayerPrefs.SetInt("SfxMuted", _isSfxMuted ? 1 : 0);
+
         PlayerPrefs.Save();
     }
 
@@ -119,6 +144,25 @@ public class SettingsManager : MonoBehaviour
             Screen.fullScreen = isFullscreen;
         }
 
+        // Load mute states before loading the volume
+        if (PlayerPrefs.HasKey("MusicMute"))
+        {
+            _isMusicMuted = PlayerPrefs.GetInt("MusicMute") == 1;
+            if (_musicMuteToggle != null)
+            {
+                _musicMuteToggle.isOn = _isMusicMuted;
+            }
+        }
+
+        if (PlayerPrefs.HasKey("SfxMute"))
+        {
+            _isSfxMuted = PlayerPrefs.GetInt("SfxMute") == 1;
+            if (_sfxMuteToggle != null)
+            {
+                _sfxMuteToggle.isOn = _isSfxMuted;
+            }
+        }
+
         if (PlayerPrefs.HasKey("MusicVolume"))
         {
             float musicVol = PlayerPrefs.GetFloat("MusicVolume");
@@ -132,5 +176,8 @@ public class SettingsManager : MonoBehaviour
             _sfxSlider.value = sfxVol;
             SetSFXVolume(sfxVol);
         }
+
+        _musicVCA.setVolume(_isMusicMuted ? 0f : _musicSlider.value);
+        _sfxVCA.setVolume(_isSfxMuted ? 0f : _sfxSlider.value);
     }
 }
