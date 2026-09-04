@@ -88,6 +88,11 @@ public class PlayerController : MonoBehaviour
     /// </summary>
     private void Update()
     {
+        if (Time.timeScale == 0f)
+        {
+            return;
+        }
+
         // Read continous Vector2 input from the Move Action
         _movementInput = _inputActions.Player.Move.ReadValue<Vector2>();
 
@@ -185,6 +190,11 @@ public class PlayerController : MonoBehaviour
     // --- DASHING LOGIC ---
     private void OnDashStarted(InputAction.CallbackContext context)
     {
+        if (Time.timeScale == 0f)
+        {
+            return;
+        }
+
         // Only trigger if not already dashing and the cooldown has finished
         if (!_isDashing && _dashCooldownCounter <= 0f)
         {
@@ -195,6 +205,12 @@ public class PlayerController : MonoBehaviour
 
     private void OnDashCancelled(InputAction.CallbackContext context)
     {
+        if (Time.timeScale == 0f)
+        {
+            _isCharging = false;
+            return;
+        }
+
         if (_isCharging)
         {
             ExecuteHop();

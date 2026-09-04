@@ -7,6 +7,8 @@ public class MainMenuManager : MonoBehaviour
     [SerializeField] private GameObject _mainButtonsContainer;
     [SerializeField] private GameObject _settingsPanel;
 
+    private string _nextSceneName = "00b_IntroCutscene_Scene";
+
     // ----------------------------------------------------------
 
     private void Start()
@@ -32,7 +34,7 @@ public class MainMenuManager : MonoBehaviour
 
     public void PlayStoryMode()
     {
-        SceneManager.LoadScene(1);
+        SceneManager.LoadScene(_nextSceneName);
     }
 
     public void QuitGame()
