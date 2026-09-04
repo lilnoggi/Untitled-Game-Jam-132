@@ -13,6 +13,7 @@ public class BossAI : MonoBehaviour, IDamageable
     private Transform _rabbitHoleTarget;
     private BoxCollider2D _roamArea;
     private Rigidbody2D _rb;
+    private SpriteRenderer _sr;
 
     private float _currentHealth;
     private float _minionTimer = 0f;
@@ -35,6 +36,7 @@ public class BossAI : MonoBehaviour, IDamageable
     private void Awake()
     {
         _rb = GetComponent<Rigidbody2D>();
+        _sr = GetComponentInChildren<SpriteRenderer>();
     }
 
     public void InitialiseBoss(Transform target, BoxCollider2D roamArea)
@@ -134,6 +136,8 @@ public class BossAI : MonoBehaviour, IDamageable
 
         _currentHealth -= amount;
 
+        UpdateAnnoyanceColour(_currentHealth, _bossData.MaxHealth);
+
         // Update health bar
         UIManager.Instance.UpdateBossHealthBar(_currentHealth, _bossData.MaxHealth);
 
@@ -205,6 +209,18 @@ public class BossAI : MonoBehaviour, IDamageable
     {
         // TTrigger phase two swarm
         WaveSpawner.Instance.TriggerPhaseTwo(transform.position);
+    }
+
+    public void UpdateAnnoyanceColour(float currentHealth, float maxHealth)
+    {
+        if (_sr != null && _bossData != null)
+        {
+            // Calculate a percentage from 1.0 (Full) to 0.0 (Empty)
+            float healthPercent = currentHealth / maxHealth;
+
+            // Lerp to blend between colours
+            _sr.color = Color.Lerp(Color.red, _bossData.EnemyColour, healthPercent);
+        }
     }
 
     private void OnTriggerEnter2D(Collider2D collision)

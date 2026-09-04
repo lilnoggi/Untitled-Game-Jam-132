@@ -141,6 +141,18 @@ public class EnemyAI : MonoBehaviour
         _fleeTarget = (Vector2)transform.position + fleeDirection * 15f;
     }
 
+    public void UpdateAnnoyanceColour(float currentHealth, float maxHealth)
+    {
+        if (_sr != null && _currentData != null)
+        {
+            // Calculate a percentage from 1.0 (Full) to 0.0 (Empty)
+            float healthPercent = currentHealth / maxHealth;
+
+            // Lerp to blend between colours
+            _sr.color = Color.Lerp(Color.red, _currentData.EnemyColour, healthPercent);
+        }
+    }
+
     private void OnTriggerEnter2D(Collider2D collision)
     {
         // Only trigger damage if the city planner hits the specific rabbit hole target

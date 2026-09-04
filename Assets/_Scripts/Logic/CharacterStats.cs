@@ -40,6 +40,8 @@ public class CharacterStats : MonoBehaviour, IDamageable
         
         _currentHealth -= amount;
 
+        _enemyAI.UpdateAnnoyanceColour(_currentHealth, _enemyData.MaxHealth);
+
         // TODO: Trigger hit animation
 
         if (_currentHealth <= 0)
