@@ -1,6 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <objects serializationModel="Studio.02.03.00">
 	<object class="Bank" id="{d037a9d2-8952-457a-af25-41691403438b}">
+		<property name="color">
+			<value>Red</value>
+		</property>
 		<property name="name">
 			<value>Weapons</value>
 		</property>

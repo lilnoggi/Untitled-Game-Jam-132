@@ -1,8 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <objects serializationModel="Studio.02.03.00">
 	<object class="AudioFile" id="{1f53db3d-cb0f-4a01-a187-8988768d58d6}">
+		<property name="color">
+			<value>Cyan Light 1</value>
+		</property>
 		<property name="assetPath">
-			<value>hover.wav</value>
+			<value>UI/hover.wav</value>
 		</property>
 		<property name="frequencyInKHz">
 			<value>48</value>

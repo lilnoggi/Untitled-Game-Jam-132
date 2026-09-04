@@ -509,7 +509,7 @@ MonoBehaviour:
       Data2: 1109375060
       Data3: 415563401
       Data4: 1875548195
-    Path: event:/Hover
+    Path: event:/UI/Hover
   Event: 
   EventPlayTrigger: 17
   EventStopTrigger: 0
@@ -540,7 +540,7 @@ MonoBehaviour:
       Data2: 1160626756
       Data3: 468755096
       Data4: -210969248
-    Path: event:/Click
+    Path: event:/UI/UIchimeUp
   Event: 
   EventPlayTrigger: 0
   EventStopTrigger: 0
@@ -1050,7 +1050,7 @@ MonoBehaviour:
       Data2: 1109375060
       Data3: 415563401
       Data4: 1875548195
-    Path: event:/Hover
+    Path: event:/UI/Hover
   Event: 
   EventPlayTrigger: 17
   EventStopTrigger: 0
@@ -2087,7 +2087,7 @@ MonoBehaviour:
       Data2: 1109375060
       Data3: 415563401
       Data4: 1875548195
-    Path: event:/Hover
+    Path: event:/UI/Hover
   Event: 
   EventPlayTrigger: 17
   EventStopTrigger: 0
@@ -2529,7 +2529,7 @@ MonoBehaviour:
       Data2: 1109375060
       Data3: 415563401
       Data4: 1875548195
-    Path: event:/Hover
+    Path: event:/UI/Hover
   Event: 
   EventPlayTrigger: 17
   EventStopTrigger: 0
@@ -2560,7 +2560,7 @@ MonoBehaviour:
       Data2: 1160626756
       Data3: 468755096
       Data4: -210969248
-    Path: event:/Click
+    Path: event:/UI/UIchimeUp
   Event: 
   EventPlayTrigger: 0
   EventStopTrigger: 0
@@ -2799,7 +2799,19 @@ MonoBehaviour:
   m_Value: 0.8
   m_OnValueChanged:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1493757689}
+        m_TargetAssemblyTypeName: SettingsManager, Assembly-CSharp
+        m_MethodName: SetSFXVolume
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &604891163
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2819,7 +2831,7 @@ MonoBehaviour:
       Data2: 1109375060
       Data3: 415563401
       Data4: 1875548195
-    Path: event:/Hover
+    Path: event:/UI/Hover
   Event: 
   EventPlayTrigger: 17
   EventStopTrigger: 0
@@ -3610,7 +3622,7 @@ MonoBehaviour:
       Data2: 1109375060
       Data3: 415563401
       Data4: 1875548195
-    Path: event:/Hover
+    Path: event:/UI/Hover
   Event: 
   EventPlayTrigger: 17
   EventStopTrigger: 0
@@ -3641,7 +3653,7 @@ MonoBehaviour:
       Data2: 1160626756
       Data3: 468755096
       Data4: -210969248
-    Path: event:/Click
+    Path: event:/UI/UIchimeUp
   Event: 
   EventPlayTrigger: 0
   EventStopTrigger: 0
@@ -4278,13 +4290,13 @@ MonoBehaviour:
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: 
-        m_MethodName: 
-        m_Mode: 1
+      - m_Target: {fileID: 1493757689}
+        m_TargetAssemblyTypeName: SettingsManager, Assembly-CSharp
+        m_MethodName: SetMusicVolume
+        m_Mode: 0
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: 
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
@@ -4449,7 +4461,7 @@ MonoBehaviour:
       Data2: 1109375060
       Data3: 415563401
       Data4: 1875548195
-    Path: event:/Hover
+    Path: event:/UI/Hover
   Event: 
   EventPlayTrigger: 17
   EventStopTrigger: 0
@@ -4761,7 +4773,7 @@ MonoBehaviour:
       Data2: 1180230544
       Data3: -1280556121
       Data4: -1811862418
-    Path: event:/Battle Theme
+    Path: event:/Music/Battle Theme
   Event: 
   EventPlayTrigger: 1
   EventStopTrigger: 2
@@ -4986,6 +4998,7 @@ GameObject:
   - component: {fileID: 1551498451}
   - component: {fileID: 1551498450}
   - component: {fileID: 1551498453}
+  - component: {fileID: 1551498454}
   m_Layer: 5
   m_Name: Mute_Music_Button
   m_TagString: Untagged
@@ -5034,10 +5047,10 @@ MonoBehaviour:
   m_Transition: 1
   m_Colors:
     m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
-    m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
-    m_PressedColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 1}
-    m_SelectedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
-    m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
+    m_HighlightedColor: {r: 0.745283, g: 0.72067463, b: 0.72067463, a: 1}
+    m_PressedColor: {r: 0.9716981, g: 0.40792987, b: 0.40792987, a: 1}
+    m_SelectedColor: {r: 0.8396226, g: 0.47921857, b: 0.47921857, a: 1}
+    m_DisabledColor: {r: 0.9339623, g: 0.7004717, b: 0.7004717, a: 0.5019608}
     m_ColorMultiplier: 1
     m_FadeDuration: 0.1
   m_SpriteState:
@@ -5113,7 +5126,7 @@ MonoBehaviour:
       Data2: 1109375060
       Data3: 415563401
       Data4: 1875548195
-    Path: event:/Hover
+    Path: event:/UI/Hover
   Event: 
   EventPlayTrigger: 17
   EventStopTrigger: 0
@@ -5125,6 +5138,37 @@ MonoBehaviour:
   OverrideAttenuation: 0
   OverrideMinDistance: 1
   OverrideMaxDistance: 20
+--- !u!114 &1551498454
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1551498448}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9a6610d2e704f1648819acc8d7460285, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: FMODUnity::FMODUnity.StudioEventEmitter
+  CollisionTag: 
+  EventReference:
+    Guid:
+      Data1: -417406544
+      Data2: 1176031359
+      Data3: -1336820308
+      Data4: 105984408
+    Path: snapshot:/MuteMusic
+  Event: 
+  EventPlayTrigger: 0
+  EventStopTrigger: 0
+  AllowFadeout: 1
+  TriggerOnce: 0
+  Preload: 0
+  NonRigidbodyVelocity: 0
+  Params: []
+  OverrideAttenuation: 0
+  OverrideMinDistance: 0
+  OverrideMaxDistance: 0
 --- !u!1 &1584382284
 GameObject:
   m_ObjectHideFlags: 0
@@ -5299,7 +5343,7 @@ MonoBehaviour:
       Data2: 1109375060
       Data3: 415563401
       Data4: 1875548195
-    Path: event:/Hover
+    Path: event:/UI/Hover
   Event: 
   EventPlayTrigger: 17
   EventStopTrigger: 0
@@ -5650,7 +5694,7 @@ MonoBehaviour:
       Data2: 1109375060
       Data3: 415563401
       Data4: 1875548195
-    Path: event:/Hover
+    Path: event:/UI/Hover
   Event: 
   EventPlayTrigger: 17
   EventStopTrigger: 0
@@ -5681,7 +5725,7 @@ MonoBehaviour:
       Data2: 1251480082
       Data3: 779311752
       Data4: 1721283452
-    Path: event:/Pause
+    Path: event:/UI/UIchimeDown
   Event: 
   EventPlayTrigger: 0
   EventStopTrigger: 0
@@ -5995,6 +6039,7 @@ GameObject:
   - component: {fileID: 1869480287}
   - component: {fileID: 1869480286}
   - component: {fileID: 1869480289}
+  - component: {fileID: 1869480290}
   m_Layer: 5
   m_Name: Mute_SFX_Button
   m_TagString: Untagged
@@ -6122,7 +6167,7 @@ MonoBehaviour:
       Data2: 1109375060
       Data3: 415563401
       Data4: 1875548195
-    Path: event:/Hover
+    Path: event:/UI/Hover
   Event: 
   EventPlayTrigger: 17
   EventStopTrigger: 0
@@ -6134,6 +6179,37 @@ MonoBehaviour:
   OverrideAttenuation: 0
   OverrideMinDistance: 1
   OverrideMaxDistance: 20
+--- !u!114 &1869480290
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1869480284}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9a6610d2e704f1648819acc8d7460285, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: FMODUnity::FMODUnity.StudioEventEmitter
+  CollisionTag: 
+  EventReference:
+    Guid:
+      Data1: 0
+      Data2: 0
+      Data3: 0
+      Data4: 0
+    Path: 
+  Event: 
+  EventPlayTrigger: 0
+  EventStopTrigger: 0
+  AllowFadeout: 1
+  TriggerOnce: 0
+  Preload: 0
+  NonRigidbodyVelocity: 0
+  Params: []
+  OverrideAttenuation: 0
+  OverrideMinDistance: -1
+  OverrideMaxDistance: -1
 --- !u!1 &1955631886
 GameObject:
   m_ObjectHideFlags: 0
@@ -6389,7 +6465,7 @@ MonoBehaviour:
       Data2: 1109375060
       Data3: 415563401
       Data4: 1875548195
-    Path: event:/Hover
+    Path: event:/UI/Hover
   Event: 
   EventPlayTrigger: 17
   EventStopTrigger: 0
@@ -6689,7 +6765,7 @@ MonoBehaviour:
       Data2: 1109375060
       Data3: 415563401
       Data4: 1875548195
-    Path: event:/Hover
+    Path: event:/UI/Hover
   Event: 
   EventPlayTrigger: 17
   EventStopTrigger: 0
@@ -6720,7 +6796,7 @@ MonoBehaviour:
       Data2: 1160626756
       Data3: 468755096
       Data4: -210969248
-    Path: event:/Click
+    Path: event:/UI/UIchimeUp
   Event: 
   EventPlayTrigger: 0
   EventStopTrigger: 0

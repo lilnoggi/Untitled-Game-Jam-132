@@ -232,7 +232,7 @@ MonoBehaviour:
       Data2: 1173256697
       Data3: 503253130
       Data4: -1613872567
-    Path: event:/Paintball Gun
+    Path: event:/Weapons/Paintball Gun
   Event: 
   EventPlayTrigger: 11
   EventStopTrigger: 0
