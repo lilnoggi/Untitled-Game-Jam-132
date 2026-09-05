@@ -4,7 +4,9 @@ using UnityEngine;
 [RequireComponent(typeof(CharacterStats))]
 public class EnemyAI : MonoBehaviour
 {
+    [Header("Visuals")]
     [SerializeField] private GameObject _litterPrefab;
+
     private EnemyData _currentData;
     private Transform _target;
     private BoxCollider2D _roamArea;
@@ -13,6 +15,7 @@ public class EnemyAI : MonoBehaviour
     private SpriteRenderer _sr;
     private Vector2 _currentRoamTarget;
     private Vector2 _fleeTarget;
+
     private bool _isFleeing = false;
 
     // ------------------------------------
@@ -37,6 +40,10 @@ public class EnemyAI : MonoBehaviour
 
         // Reset scale for object pool
         transform.localScale = Vector3.one;
+        if (_sr != null)
+        {
+            _sr.transform.localPosition = Vector3.zero;
+        }
 
         _currentData = data;
         _target = rabbitHole;
@@ -45,10 +52,14 @@ public class EnemyAI : MonoBehaviour
         // Pass the data down to the stats component to configure health
         _stats.InitialiseEnemyHealth(data);
 
-        // Apply the colour from the data
-        if (_sr != null)
+        // Choose a random sprite from the array
+        if (_sr != null && data.EnemySprites != null && data.EnemySprites.Length > 0)
         {
-            _sr.color = data.EnemyColour;
+            int randomIndex = Random.Range(0, data.EnemySprites.Length);
+            _sr.sprite = data.EnemySprites[randomIndex];
+
+            // Force the colour to pure white
+            _sr.color = Color.white;
         }
 
         // If this is a roaming enemy, pick their first destination
@@ -156,7 +167,7 @@ public class EnemyAI : MonoBehaviour
             float healthPercent = currentHealth / maxHealth;
 
             // Lerp to blend between colours
-            _sr.color = Color.Lerp(Color.red, _currentData.EnemyColour, healthPercent);
+            _sr.color = Color.Lerp(Color.red, Color.white, healthPercent);
         }
     }
 

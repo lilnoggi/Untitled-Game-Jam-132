@@ -219,7 +219,7 @@ public class BossAI : MonoBehaviour, IDamageable
             float healthPercent = currentHealth / maxHealth;
 
             // Lerp to blend between colours
-            _sr.color = Color.Lerp(Color.red, _bossData.EnemyColour, healthPercent);
+            _sr.color = Color.Lerp(Color.red, Color.white, healthPercent);
         }
     }
 

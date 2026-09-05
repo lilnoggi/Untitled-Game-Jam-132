@@ -1,5 +1,4 @@
 using System;
-using Unity.VisualScripting;
 using UnityEngine;
 
 public class LitterHazard : MonoBehaviour, IDamageable
@@ -10,10 +9,19 @@ public class LitterHazard : MonoBehaviour, IDamageable
     [SerializeField] private float _drainEscalationRate = 0.5f;
     [SerializeField] private float _pickupHealAmount = 5f;
 
+    [Header("Visuals")]
+    [SerializeField] private Sprite[] _litterSprites;
+
     private float _currentLitterHealth;
     private float _currentDrainRate;
+    private SpriteRenderer _sr;
 
     // ----------------------------------------------------------------
+
+    private void Awake()
+    {
+        _sr = GetComponentInChildren<SpriteRenderer>();
+    }
 
     private void OnEnable()
     {
@@ -21,6 +29,12 @@ public class LitterHazard : MonoBehaviour, IDamageable
         _currentLitterHealth = _maxLitterHealth;
         _currentDrainRate = _baseDrainRate;
         transform.localScale = Vector3.one;
+
+        // Randomise the rubbish visual every time one is pulled from the pool
+        if (_sr != null && _litterSprites != null && _litterSprites.Length > 0)
+        {
+            _sr.sprite = _litterSprites[UnityEngine.Random.Range(0, _litterSprites.Length)];
+        }
     }
 
     private void Update()

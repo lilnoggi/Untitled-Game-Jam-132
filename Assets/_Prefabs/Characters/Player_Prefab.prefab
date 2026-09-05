@@ -117,7 +117,7 @@ Transform:
   m_GameObject: {fileID: 4874382001803728472}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: -0.611, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -136,6 +136,7 @@ GameObject:
   - component: {fileID: 1607209122010739754}
   - component: {fileID: 7105334974889131882}
   - component: {fileID: 4321628373637587496}
+  - component: {fileID: 1129255363505484742}
   m_Layer: 6
   m_Name: Player_Prefab
   m_TagString: Player
@@ -278,3 +279,21 @@ BoxCollider2D:
   m_AutoTiling: 0
   m_Size: {x: 1.5, y: 1.5}
   m_EdgeRadius: 0
+--- !u!114 &1129255363505484742
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9045874021589192050}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8ba0a9681a58eb2418fda63f0170fb3d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::ProceduralWalkAnimator
+  _visualTransform: {fileID: 9116509245992478149}
+  _bobHeight: 0.25
+  _bobSpeed: 10
+  _maxRotationAngle: 5
+  _rotationSpeed: 5
+  _isMoving: 0

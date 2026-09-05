@@ -9,7 +9,7 @@ public class EnemyData : ScriptableObject
     [SerializeField] private float _maxHealth;
     [SerializeField] private float _moveSpeed;
     [SerializeField] private int _pointsAwarded;
-    [SerializeField] private Color _enemyColour = Color.white; 
+    [SerializeField] private Sprite[] _enemySprites;
 
     // ----------------------------------------------
 
@@ -19,5 +19,5 @@ public class EnemyData : ScriptableObject
     public float MaxHealth => _maxHealth;
     public float MoveSpeed => _moveSpeed;
     public int PointsAwarded => _pointsAwarded;
-    public Color EnemyColour => _enemyColour;
+    public Sprite[] EnemySprites => _enemySprites;
 }

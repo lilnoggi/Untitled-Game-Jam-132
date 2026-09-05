@@ -191,7 +191,7 @@ public class WaveSpawner : MonoBehaviour
                 enemyAI.InitialiseEnemy(_miniBossData, _rabbitHoleTarget, _roamAreaBounds);
 
                 // Scale them down visually to half size
-                minionObj.transform.localScale = new Vector3(0.5f, 0.5f, 1f);
+                minionObj.transform.localScale = new Vector3(1f, 1f, 1f);
             }
 
             // Inflate wave count so victory screen waits for these minions to die
