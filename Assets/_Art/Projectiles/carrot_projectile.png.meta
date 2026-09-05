@@ -1,25 +1,10 @@
 fileFormatVersion: 2
-guid: 97aaca54c8741c1419901231845908ca
+guid: 3251a1379832ec64c96f53d443e8ca00
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 2041062661826879537
-    second: water_vfx_yay_0
-  - first:
-      213: 5867373087380809698
-    second: water_vfx_yay_1
-  - first:
-      213: 8875288224336732600
-    second: water_vfx_yay_2
-  - first:
-      213: 713004554573193023
-    second: water_vfx_yay_3
-  - first:
-      213: 6775222237488346593
-    second: water_vfx_yay_4
-  - first:
-      213: -5402972136490890125
-    second: water_vfx_yay_5
+      213: -849062659444615187
+    second: carrot_projectile_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -61,7 +46,7 @@ TextureImporter:
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
-  spriteMode: 2
+  spriteMode: 1
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
@@ -141,13 +126,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: water_vfx_yay_0
+      name: carrot_projectile_0
       rect:
         serializedVersion: 2
-        x: 0
+        x: 1
         y: 0
-        width: 57
-        height: 67
+        width: 31
+        height: 16
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -156,52 +141,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 130218a4daf435c10800000000000000
-      internalID: 2041062661826879537
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: water_vfx_yay_1
-      rect:
-        serializedVersion: 2
-        x: 57
-        y: 0
-        width: 49
-        height: 67
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 2e7250e7cb81d6150800000000000000
-      internalID: 5867373087380809698
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: water_vfx_yay_2
-      rect:
-        serializedVersion: 2
-        x: 106
-        y: 0
-        width: 47
-        height: 67
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 8b16cc2ed9b5b2b70800000000000000
-      internalID: 8875288224336732600
+      spriteID: de751cf72068734f0800000000000000
+      internalID: -849062659444615187
       vertices: []
       indices: 
       edges: []
@@ -210,7 +151,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 1af96197bb23bc443b6fc49d231cfc14
+    spriteID: 5e97eb03825dee720800000000000000
     internalID: 0
     vertices: []
     indices: 
@@ -220,12 +161,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      water_vfx_yay_0: 2041062661826879537
-      water_vfx_yay_1: 5867373087380809698
-      water_vfx_yay_2: 8875288224336732600
-      water_vfx_yay_3: 713004554573193023
-      water_vfx_yay_4: 6775222237488346593
-      water_vfx_yay_5: -5402972136490890125
+      carrot_projectile_0: -849062659444615187
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

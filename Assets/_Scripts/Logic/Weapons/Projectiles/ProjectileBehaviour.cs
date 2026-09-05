@@ -3,6 +3,8 @@ using UnityEngine;
 [RequireComponent(typeof(Rigidbody2D))]
 public class ProjectileBehaviour : MonoBehaviour
 {
+    [SerializeField] private GameObject _explosionPrefab;
+
     private float _speed;
     private float _damage;
     private Rigidbody2D _rb;
@@ -45,7 +47,11 @@ public class ProjectileBehaviour : MonoBehaviour
             damageable.TakeDamage(_damage);
         }      
 
-        // TODO: Spawn impact VFX here
+        // Spawn VFX
+        if (_explosionPrefab != null)
+        {
+            PoolManager.Instance.SpawnFromPool(_explosionPrefab, transform.position, Quaternion.identity);
+        }
 
         // Return the bullet to the pool
         PoolManager.Instance.ReturnToPool(gameObject);
