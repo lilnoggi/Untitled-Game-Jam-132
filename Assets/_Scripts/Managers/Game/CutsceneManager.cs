@@ -12,6 +12,8 @@ public struct CutsceneSlide
     public string SpeakerName;
     [TextArea(3, 5)]
     public string DialogueText;
+    public bool IsBobbing;
+    public GameObject ExtraVisuals;
 }
 
 public class CutsceneManager : MonoBehaviour
@@ -27,8 +29,11 @@ public class CutsceneManager : MonoBehaviour
     [SerializeField] private CutsceneSlide[] _slides;
     [SerializeField] private string _nextSceneName = "01_Gameplay_Scene";
 
+
     private int _currentSlideIndex = 0;
     private InputSystem_Actions _inputActions;
+    private Vector2 _originalImagePosition;
+    private float _bobTimer = 0f;
 
     // ---------------------------------------------------------------------------
 
@@ -51,7 +56,17 @@ public class CutsceneManager : MonoBehaviour
 
     private void Start()
     {
+
         ShowSlide(_currentSlideIndex);
+    }
+
+    private void Update()
+    {
+        if (_slideDisplay == null || _slides.Length == 0)
+        {
+            return;
+        }
+
     }
 
     private void HandleClick(InputAction.CallbackContext context)
@@ -79,6 +94,21 @@ public class CutsceneManager : MonoBehaviour
 
     private void ShowSlide(int index)
     {
+        foreach (var slide in _slides)
+        {
+            if (slide.ExtraVisuals != null)
+            {
+                slide.ExtraVisuals.SetActive(false);
+            }
+        }
+
+        if (_slides[index].ExtraVisuals != null)
+        {
+            _slides[index].ExtraVisuals.SetActive(true);
+        }
+
+
+
         if (_slideDisplay != null && _slides[index].SlideImage != null)
         {
             _slideDisplay.sprite = _slides[index].SlideImage;
