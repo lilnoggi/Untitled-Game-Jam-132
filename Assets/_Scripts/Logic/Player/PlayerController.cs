@@ -1,6 +1,7 @@
 using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.UI;
+using FMODUnity;
 
 [RequireComponent(typeof(Rigidbody2D))]
 public class PlayerController : MonoBehaviour
@@ -23,6 +24,7 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private Transform _playerVisuals;
     [SerializeField] private float _minHopHeight = 0.5f;
     [SerializeField] private float _maxHopHeight = 1.8f;
+    [SerializeField] private EventReference hopSoundEvent;
 
     [Header("UI References")]
     [SerializeField] private Image _cooldownRadial;
@@ -230,6 +232,9 @@ public class PlayerController : MonoBehaviour
     {
         _isCharging = false;
         _isDashing = true;
+
+        // Pay FMOD sound
+        RuntimeManager.PlayOneShot(hopSoundEvent, transform.position);
 
         // Calculate a 0.0 to 1.0 percentage of how long the button has been held
         float chargePercent = Mathf.Clamp01(_currentChargeTime / _maxChargeTime);
