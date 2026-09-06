@@ -87,7 +87,7 @@
 	</object>
 	<object class="MultiSound" id="{a3cd75f6-c5d2-4b67-8505-0a936d1953f3}">
 		<relationship name="sounds">
-			<destination>{0b0810dd-2059-471a-8f4e-97a7f23da3fc}</destination>
+			<destination>{7be0671f-5cf9-4541-8932-abf1422e0904}</destination>
 		</relationship>
 	</object>
 	<object class="MixerBusEffectChain" id="{6a7579cf-be12-4e7a-ace5-b6d2476d768a}">
@@ -104,10 +104,7 @@
 		</relationship>
 	</object>
 	<object class="MixerBusPanner" id="{abdc4d23-e660-4335-a7c1-05ec1bcd4e93}" />
-	<object class="SingleSound" id="{0b0810dd-2059-471a-8f4e-97a7f23da3fc}">
-		<property name="color">
-			<value>Red Light 2</value>
-		</property>
+	<object class="SingleSound" id="{7be0671f-5cf9-4541-8932-abf1422e0904}">
 		<relationship name="audioFile">
 			<destination>{88e8d09a-761c-4a4c-bd84-58516b81a531}</destination>
 		</relationship>

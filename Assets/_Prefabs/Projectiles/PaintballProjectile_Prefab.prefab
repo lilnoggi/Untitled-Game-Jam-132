@@ -236,7 +236,7 @@ MonoBehaviour:
     Path: event:/Weapons/Paintball Gun
   Event: 
   EventPlayTrigger: 11
-  EventStopTrigger: 0
+  EventStopTrigger: 2
   AllowFadeout: 1
   TriggerOnce: 0
   Preload: 0
