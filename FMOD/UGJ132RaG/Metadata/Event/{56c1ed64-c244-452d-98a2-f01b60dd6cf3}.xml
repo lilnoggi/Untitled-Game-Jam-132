@@ -1,14 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <objects serializationModel="Studio.02.03.00">
 	<object class="Event" id="{56c1ed64-c244-452d-98a2-f01b60dd6cf3}">
+		<property name="color">
+			<value>Cyan Light 1</value>
+		</property>
 		<property name="name">
-			<value>Click</value>
+			<value>UIchimeUp</value>
 		</property>
 		<property name="outputFormat">
 			<value>1</value>
 		</property>
 		<relationship name="folder">
-			<destination>{1822407b-797f-4cf4-ab37-2926f1d61fa3}</destination>
+			<destination>{9f602e39-810c-4d74-80bd-7a9b4a70cd08}</destination>
 		</relationship>
 		<relationship name="mixer">
 			<destination>{02f3d217-b392-4ac0-b5f2-6c11aabc6b8b}</destination>
@@ -32,7 +35,6 @@
 			<destination>{e8dc646b-f9a6-4fd8-97fe-41dcd98ad84b}</destination>
 		</relationship>
 		<relationship name="banks">
-			<destination>{b1eb4f33-c274-45b1-9f85-8d1bffbb969f}</destination>
 			<destination>{4411e42a-a3a8-4c49-8341-ff0056770ef7}</destination>
 		</relationship>
 	</object>
@@ -101,6 +103,9 @@
 	</object>
 	<object class="MixerBusPanner" id="{213ae9e0-25d5-46ef-b4c1-95da82075e08}" />
 	<object class="SingleSound" id="{086a74f9-c180-4b0e-9e8e-c50b3db048c8}">
+		<property name="color">
+			<value>Cyan Light 2</value>
+		</property>
 		<relationship name="audioFile">
 			<destination>{f9f194dd-07c6-466a-9a43-48f330a223dc}</destination>
 		</relationship>

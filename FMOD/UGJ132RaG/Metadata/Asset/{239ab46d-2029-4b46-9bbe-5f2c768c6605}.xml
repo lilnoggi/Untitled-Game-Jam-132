@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.02.03.00">
+	<object class="EncodableAsset" id="{239ab46d-2029-4b46-9bbe-5f2c768c6605}">
+		<property name="color">
+			<value>Red</value>
+		</property>
+		<property name="assetPath">
+			<value>Weapons/</value>
+		</property>
+		<relationship name="masterAssetFolder">
+			<destination>{7e148bcc-1868-46a5-a153-70805170d4b8}</destination>
+		</relationship>
+	</object>
+</objects>

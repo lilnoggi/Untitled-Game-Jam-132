@@ -1187,7 +1187,7 @@ MonoBehaviour:
       Data2: 1109375060
       Data3: 415563401
       Data4: 1875548195
-    Path: event:/Hover
+    Path: event:/UI/Hover
   Event: 
   EventPlayTrigger: 17
   EventStopTrigger: 0
@@ -1804,7 +1804,7 @@ MonoBehaviour:
       Data2: 1109375060
       Data3: 415563401
       Data4: 1875548195
-    Path: event:/Hover
+    Path: event:/UI/Hover
   Event: 
   EventPlayTrigger: 17
   EventStopTrigger: 0
@@ -2274,7 +2274,7 @@ MonoBehaviour:
       Data2: 1109375060
       Data3: 415563401
       Data4: 1875548195
-    Path: event:/Hover
+    Path: event:/UI/Hover
   Event: 
   EventPlayTrigger: 17
   EventStopTrigger: 0
@@ -2381,7 +2381,7 @@ MonoBehaviour:
       Data2: 1109375060
       Data3: 415563401
       Data4: 1875548195
-    Path: event:/Hover
+    Path: event:/UI/Hover
   Event: 
   EventPlayTrigger: 17
   EventStopTrigger: 0
@@ -2992,7 +2992,7 @@ MonoBehaviour:
       Data2: 1109375060
       Data3: 415563401
       Data4: 1875548195
-    Path: event:/Hover
+    Path: event:/UI/Hover
   Event: 
   EventPlayTrigger: 17
   EventStopTrigger: 0
@@ -3023,7 +3023,7 @@ MonoBehaviour:
       Data2: 1251480082
       Data3: 779311752
       Data4: 1721283452
-    Path: event:/Pause
+    Path: event:/UI/UIchimeDown
   Event: 
   EventPlayTrigger: 0
   EventStopTrigger: 0
@@ -3188,7 +3188,7 @@ MonoBehaviour:
       Data2: 1109375060
       Data3: 415563401
       Data4: 1875548195
-    Path: event:/Hover
+    Path: event:/UI/Hover
   Event: 
   EventPlayTrigger: 17
   EventStopTrigger: 0
@@ -3317,7 +3317,7 @@ MonoBehaviour:
       Data2: 1109375060
       Data3: 415563401
       Data4: 1875548195
-    Path: event:/Hover
+    Path: event:/UI/Hover
   Event: 
   EventPlayTrigger: 17
   EventStopTrigger: 0
@@ -4231,7 +4231,7 @@ MonoBehaviour:
       Data2: 1109375060
       Data3: 415563401
       Data4: 1875548195
-    Path: event:/Hover
+    Path: event:/UI/Hover
   Event: 
   EventPlayTrigger: 17
   EventStopTrigger: 0
