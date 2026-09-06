@@ -115,7 +115,7 @@ MonoBehaviour:
     Path: event:/Weapons/Water Gun
   Event: 
   EventPlayTrigger: 11
-  EventStopTrigger: 0
+  EventStopTrigger: 12
   AllowFadeout: 1
   TriggerOnce: 0
   Preload: 0
