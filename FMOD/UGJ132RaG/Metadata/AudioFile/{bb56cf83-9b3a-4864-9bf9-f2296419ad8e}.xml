@@ -1,8 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <objects serializationModel="Studio.02.03.00">
 	<object class="AudioFile" id="{bb56cf83-9b3a-4864-9bf9-f2296419ad8e}">
+		<property name="color">
+			<value>Blue Light 1</value>
+		</property>
 		<property name="assetPath">
-			<value>battle_theme.mp3</value>
+			<value>Music/battle_theme.mp3</value>
 		</property>
 		<property name="isStreaming">
 			<value>true</value>

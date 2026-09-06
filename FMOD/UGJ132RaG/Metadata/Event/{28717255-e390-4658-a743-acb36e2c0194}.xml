@@ -1,6 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <objects serializationModel="Studio.02.03.00">
 	<object class="Event" id="{28717255-e390-4658-a743-acb36e2c0194}">
+		<property name="color">
+			<value>Blue Light 1</value>
+		</property>
 		<property name="name">
 			<value>Battle Theme</value>
 		</property>
@@ -8,7 +11,7 @@
 			<value>1</value>
 		</property>
 		<relationship name="folder">
-			<destination>{1822407b-797f-4cf4-ab37-2926f1d61fa3}</destination>
+			<destination>{16656169-ae13-4e86-8565-5bab92d3e59d}</destination>
 		</relationship>
 		<relationship name="mixer">
 			<destination>{116ac088-161d-4cbe-a579-9beca30e5028}</destination>
@@ -32,7 +35,6 @@
 			<destination>{6bdf4f01-f111-4024-821e-2f3ca782743b}</destination>
 		</relationship>
 		<relationship name="banks">
-			<destination>{b1eb4f33-c274-45b1-9f85-8d1bffbb969f}</destination>
 			<destination>{5868a2b6-0445-4f62-8d1d-c6c346173990}</destination>
 		</relationship>
 	</object>
@@ -96,6 +98,9 @@
 		<property name="triggerConditionMode">
 			<value>1</value>
 		</property>
+		<property name="color">
+			<value>Blue Light 2</value>
+		</property>
 		<property name="length">
 			<value>86.543999999999997</value>
 		</property>
@@ -107,6 +112,9 @@
 		</relationship>
 	</object>
 	<object class="EventMixerGroup" id="{a4953162-9c87-4b0b-a62b-d6c46f04fdac}">
+		<property name="color">
+			<value>Blue Light 1</value>
+		</property>
 		<property name="name">
 			<value>Audio 1</value>
 		</property>
@@ -137,8 +145,6 @@
 	<object class="MixerBusEffectChain" id="{77f05414-0e0a-4c70-8369-8ebec8f1db74}">
 		<relationship name="effects">
 			<destination>{125438f9-9a83-486a-96eb-073a2cb6788a}</destination>
-			<destination>{78aa7136-76a3-4212-bfc3-c03320c14825}</destination>
-			<destination>{58d3fd00-0cea-4200-be27-dfcf333210b2}</destination>
 		</relationship>
 	</object>
 	<object class="MixerBusPanner" id="{799f1f7b-9eb9-40a1-aa7e-16081e8c6fec}" />
@@ -146,28 +152,9 @@
 	<object class="MixerBusEffectChain" id="{26b92714-d8bc-410a-87cf-9649eea19e3d}">
 		<relationship name="effects">
 			<destination>{41f9923d-c20d-4345-b56c-487c683a68f6}</destination>
-			<destination>{12c36380-031b-41b4-90b5-a660fd7da7cd}</destination>
 		</relationship>
 	</object>
 	<object class="MixerBusPanner" id="{9387df93-1af4-40ed-af3a-d5389d863b85}" />
 	<object class="MixerBusFader" id="{125438f9-9a83-486a-96eb-073a2cb6788a}" />
-	<object class="CompressorEffect" id="{78aa7136-76a3-4212-bfc3-c03320c14825}">
-		<property name="threshold">
-			<value>-6</value>
-		</property>
-	</object>
-	<object class="LimiterEffect" id="{58d3fd00-0cea-4200-be27-dfcf333210b2}">
-		<property name="ceiling">
-			<value>-1</value>
-		</property>
-	</object>
 	<object class="MixerBusFader" id="{41f9923d-c20d-4345-b56c-487c683a68f6}" />
-	<object class="ProxyEffect" id="{12c36380-031b-41b4-90b5-a660fd7da7cd}">
-		<property name="inputFormat">
-			<value>1</value>
-		</property>
-		<relationship name="preset">
-			<destination>{72beec3b-f3ff-4a8d-be9a-96a6b697e052}</destination>
-		</relationship>
-	</object>
 </objects>

@@ -1,6 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <objects serializationModel="Studio.02.03.00">
 	<object class="Event" id="{a276d40b-b854-421f-89fe-c4182398ca6f}">
+		<property name="color">
+			<value>Cyan Light 1</value>
+		</property>
 		<property name="name">
 			<value>Hover</value>
 		</property>
@@ -8,7 +11,7 @@
 			<value>1</value>
 		</property>
 		<relationship name="folder">
-			<destination>{1822407b-797f-4cf4-ab37-2926f1d61fa3}</destination>
+			<destination>{9f602e39-810c-4d74-80bd-7a9b4a70cd08}</destination>
 		</relationship>
 		<relationship name="mixer">
 			<destination>{8f7adad3-5d97-49f4-85ba-fffe31add3e0}</destination>
@@ -32,7 +35,6 @@
 			<destination>{6f8a0caa-1b5d-4737-a241-9af60d602560}</destination>
 		</relationship>
 		<relationship name="banks">
-			<destination>{b1eb4f33-c274-45b1-9f85-8d1bffbb969f}</destination>
 			<destination>{4411e42a-a3a8-4c49-8341-ff0056770ef7}</destination>
 		</relationship>
 	</object>
@@ -102,6 +104,9 @@
 	</object>
 	<object class="MixerBusPanner" id="{d3700675-af8c-411b-bcb9-9346cbbf073f}" />
 	<object class="SingleSound" id="{05b78064-7076-43f5-b6c7-a674b9fda5ee}">
+		<property name="color">
+			<value>Cyan Light 2</value>
+		</property>
 		<property name="volume">
 			<value>-8</value>
 		</property>
