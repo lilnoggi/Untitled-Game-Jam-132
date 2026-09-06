@@ -9,6 +9,7 @@ public class VictoryConditionsManager : MonoBehaviour
     [Header("Forest Defense")]
     [SerializeField] private float _forestMaxHealth = 100f;
     private float _currentForestHealth;
+    [SerializeField] private float _passiveRegenRate = 1f;
     private bool _isGameOver = false;
 
     // -------------------------------------------------------------------------
@@ -30,6 +31,15 @@ public class VictoryConditionsManager : MonoBehaviour
     {
         // Push initial health values after UIManager finishes Awake setup
         UIManager.Instance.UpdateForestBar(_currentForestHealth, _forestMaxHealth);
+    }
+
+    private void Update()
+    {
+        // Automatically regenerate health over time if the forest is damaged
+        if (!_isGameOver && _currentForestHealth < _forestMaxHealth)
+        {
+            HealForest(_passiveRegenRate * Time.deltaTime);
+        }
     }
 
     /// <summary>

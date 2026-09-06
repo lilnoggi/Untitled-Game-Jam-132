@@ -4,6 +4,9 @@ using UnityEngine;
 [RequireComponent(typeof(CharacterStats))]
 public class EnemyAI : MonoBehaviour
 {
+    [Header("Visuals")]
+    [SerializeField] private GameObject _litterPrefab;
+
     private EnemyData _currentData;
     private Transform _target;
     private BoxCollider2D _roamArea;
@@ -12,6 +15,7 @@ public class EnemyAI : MonoBehaviour
     private SpriteRenderer _sr;
     private Vector2 _currentRoamTarget;
     private Vector2 _fleeTarget;
+
     private bool _isFleeing = false;
 
     // ------------------------------------
@@ -36,6 +40,10 @@ public class EnemyAI : MonoBehaviour
 
         // Reset scale for object pool
         transform.localScale = Vector3.one;
+        if (_sr != null)
+        {
+            _sr.transform.localPosition = Vector3.zero;
+        }
 
         _currentData = data;
         _target = rabbitHole;
@@ -44,10 +52,14 @@ public class EnemyAI : MonoBehaviour
         // Pass the data down to the stats component to configure health
         _stats.InitialiseEnemyHealth(data);
 
-        // Apply the colour from the data
-        if (_sr != null)
+        // Choose a random sprite from the array
+        if (_sr != null && data.EnemySprites != null && data.EnemySprites.Length > 0)
         {
-            _sr.color = data.EnemyColour;
+            int randomIndex = Random.Range(0, data.EnemySprites.Length);
+            _sr.sprite = data.EnemySprites[randomIndex];
+
+            // Force the colour to pure white
+            _sr.color = Color.white;
         }
 
         // If this is a roaming enemy, pick their first destination
@@ -112,6 +124,12 @@ public class EnemyAI : MonoBehaviour
         // If the enemy is close enough to their random spot, pick a new one
         if (Vector2.Distance(transform.position, _currentRoamTarget) < 0.5f)
         {
+            // Spawn pooled litter if this is a teenager
+            if (_currentData.Type == EnemyType.LitteringTeenager && _litterPrefab != null)
+            {
+                PoolManager.Instance.SpawnFromPool(_litterPrefab, transform.position, Quaternion.identity);    
+            }
+
             PickNewRoamTarget();
 
             // TODO: Trigger specific abilities here (take picture, drop flag, throw litter)
@@ -139,6 +157,18 @@ public class EnemyAI : MonoBehaviour
         // Pick a coordinate far off-screen by calculating the direction away from the center
         Vector2 fleeDirection = ((Vector2)transform.position - (Vector2)_target.position).normalized;
         _fleeTarget = (Vector2)transform.position + fleeDirection * 15f;
+    }
+
+    public void UpdateAnnoyanceColour(float currentHealth, float maxHealth)
+    {
+        if (_sr != null && _currentData != null)
+        {
+            // Calculate a percentage from 1.0 (Full) to 0.0 (Empty)
+            float healthPercent = currentHealth / maxHealth;
+
+            // Lerp to blend between colours
+            _sr.color = Color.Lerp(Color.red, Color.white, healthPercent);
+        }
     }
 
     private void OnTriggerEnter2D(Collider2D collision)

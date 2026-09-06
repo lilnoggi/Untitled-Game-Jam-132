@@ -17,4 +17,5 @@ MonoBehaviour:
   _maxHealth: 10000
   _moveSpeed: 5
   _pointsAwarded: 500
-  _enemyColour: {r: 0.7924528, g: 0.17568529, b: 0.17568529, a: 1}
+  _enemySprites:
+  - {fileID: 21300000, guid: 756ef597b63a9dd46bf6bd6c0f43a82d, type: 3}
