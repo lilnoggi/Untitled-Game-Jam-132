@@ -342,7 +342,7 @@ MonoBehaviour:
       Data2: 1180230544
       Data3: -1280556121
       Data4: -1811862418
-    Path: event:/Battle Theme
+    Path: event:/Music/Battle Theme
   Event: 
   EventPlayTrigger: 1
   EventStopTrigger: 2

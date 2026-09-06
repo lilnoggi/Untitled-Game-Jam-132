@@ -213,6 +213,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e4cc3532b844f8542a4f83cae5c08240, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ProjectileBehaviour
+  _explosionPrefab: {fileID: 0}
 --- !u!114 &-1271004404930509607
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -232,7 +233,7 @@ MonoBehaviour:
       Data2: 1173256697
       Data3: 503253130
       Data4: -1613872567
-    Path: event:/Paintball Gun
+    Path: event:/Weapons/Paintball Gun
   Event: 
   EventPlayTrigger: 11
   EventStopTrigger: 0

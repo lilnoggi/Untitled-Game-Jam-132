@@ -112,7 +112,7 @@ MonoBehaviour:
       Data2: 1099769606
       Data3: 1460849307
       Data4: 1252496292
-    Path: event:/Water Gun
+    Path: event:/Weapons/Water Gun
   Event: 
   EventPlayTrigger: 11
   EventStopTrigger: 0
