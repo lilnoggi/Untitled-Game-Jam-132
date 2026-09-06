@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.02.03.00">
+	<object class="ParameterPreset" id="{b4f91d06-8c64-4593-acee-10efdb636605}">
+		<property name="name">
+			<value>JumpDistance</value>
+		</property>
+		<relationship name="folder">
+			<destination>{b59feb5b-7523-4531-8a49-25ac709a31cd}</destination>
+		</relationship>
+		<relationship name="parameter">
+			<destination>{b6f59a22-a82f-4c53-9dfe-03fbf0efca28}</destination>
+		</relationship>
+	</object>
+	<object class="GameParameter" id="{b6f59a22-a82f-4c53-9dfe-03fbf0efca28}">
+		<property name="initialValue">
+			<value>0</value>
+		</property>
+	</object>
+</objects>
