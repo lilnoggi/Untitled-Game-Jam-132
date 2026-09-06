@@ -1529,6 +1529,14 @@ PrefabInstance:
       propertyPath: _crosshair
       value: 
       objectReference: {fileID: 1207745033}
+    - target: {fileID: 7105334974889131882, guid: 3feed2b6fc2517149be969a852ad8b65, type: 3}
+      propertyPath: _availableWeapons.Array.size
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 7105334974889131882, guid: 3feed2b6fc2517149be969a852ad8b65, type: 3}
+      propertyPath: '_availableWeapons.Array.data[3]'
+      value: 
+      objectReference: {fileID: 11400000, guid: 04560c4691d100e4ab51ac81b7f05f1d, type: 2}
     - target: {fileID: 9045874021589192050, guid: 3feed2b6fc2517149be969a852ad8b65, type: 3}
       propertyPath: m_Name
       value: Player_Prefab

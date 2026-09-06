@@ -10,10 +10,9 @@ GameObject:
   m_Component:
   - component: {fileID: 5786046329472499418}
   - component: {fileID: 2046405764505604684}
-  - component: {fileID: 8154021364114204408}
   - component: {fileID: 4474316884636834490}
   m_Layer: 7
-  m_Name: WaterProjectile_Prefab
+  m_Name: Laser_VFX
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -81,18 +80,6 @@ BoxCollider2D:
   m_AutoTiling: 0
   m_Size: {x: 0.65, y: 0.3}
   m_EdgeRadius: 0
---- !u!114 &8154021364114204408
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1630189201451078171}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9c584e388abb5d34dbd1e0e68219643a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::SplashVFX
 --- !u!114 &4474316884636834490
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -136,7 +123,7 @@ GameObject:
   - component: {fileID: 5641335920565631530}
   - component: {fileID: 2057400729889642808}
   m_Layer: 7
-  m_Name: Water_Sprite
+  m_Name: Laser_Sprite
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -206,7 +193,7 @@ SpriteRenderer:
   m_SortingLayer: 3
   m_SortingOrder: 0
   m_MaskInteraction: 0
-  m_Sprite: {fileID: 2041062661826879537, guid: 97aaca54c8741c1419901231845908ca, type: 3}
+  m_Sprite: {fileID: 6587104540968302084, guid: 8cd605ccc63dd2748a7f22f7547ca766, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 1
@@ -227,7 +214,7 @@ Animator:
   m_GameObject: {fileID: 8115330392089910908}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: ddfe1fc6f10c2b244948a8b29bdc929b, type: 2}
+  m_Controller: {fileID: 9100000, guid: d03bf62616fa5b3458246f520a4e8272, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
