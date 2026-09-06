@@ -35,6 +35,8 @@ public class PlayerController : MonoBehaviour
     // Reference to Input Actions
     private InputSystem_Actions _inputActions;
 
+    private ProceduralWalkAnimator _walkAnimator;
+
     // Dash State Tracking
     private bool _isCharging;
     private bool _isDashing;
@@ -58,6 +60,8 @@ public class PlayerController : MonoBehaviour
     {
         _rb = GetComponent<Rigidbody2D>();
         _inputActions = new InputSystem_Actions();
+
+        _walkAnimator = GetComponent<ProceduralWalkAnimator>();
     }
 
     /// <summary>
@@ -95,6 +99,11 @@ public class PlayerController : MonoBehaviour
 
         // Read continous Vector2 input from the Move Action
         _movementInput = _inputActions.Player.Move.ReadValue<Vector2>();
+
+        if (_walkAnimator != null)
+        {
+            _walkAnimator.IsMoving = (_movementInput != Vector2.zero);
+        }
 
         // Store the last direction the player moved so they can dash from a standstill
         if (_movementInput != Vector2.zero)

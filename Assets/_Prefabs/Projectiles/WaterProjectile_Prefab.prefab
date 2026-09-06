@@ -29,7 +29,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 5, y: 5, z: 1}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1647656774256399604}
@@ -112,7 +112,7 @@ MonoBehaviour:
       Data2: 1099769606
       Data3: 1460849307
       Data4: 1252496292
-    Path: event:/Water Gun
+    Path: event:/Weapons/Water Gun
   Event: 
   EventPlayTrigger: 11
   EventStopTrigger: 0

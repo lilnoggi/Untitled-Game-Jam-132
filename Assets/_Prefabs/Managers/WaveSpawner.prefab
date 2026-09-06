@@ -1,0 +1,85 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &3586029687986334073
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 6732694059448353753}
+  - component: {fileID: 8251070210367253099}
+  m_Layer: 0
+  m_Name: WaveSpawner
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &6732694059448353753
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3586029687986334073}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &8251070210367253099
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3586029687986334073}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 49838997bfc2ab347b2050500647999c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::WaveSpawner
+  _waves:
+  - waveName: A new path
+    enemyCount: 15
+    spawnRate: 2
+    allowedEnemyTypes:
+    - {fileID: 11400000, guid: 1141c2cee5036b845bf0c408555a128a, type: 2}
+  - waveName: Litter Park
+    enemyCount: 25
+    spawnRate: 1.5
+    allowedEnemyTypes:
+    - {fileID: 11400000, guid: 1141c2cee5036b845bf0c408555a128a, type: 2}
+    - {fileID: 11400000, guid: 47ba24001280d0c4881851e81f7b8a5c, type: 2}
+  - waveName: In The Works
+    enemyCount: 35
+    spawnRate: 1
+    allowedEnemyTypes:
+    - {fileID: 11400000, guid: 1141c2cee5036b845bf0c408555a128a, type: 2}
+    - {fileID: 11400000, guid: 77b9fdcc8c942ad448966f1e603a1a27, type: 2}
+    - {fileID: 11400000, guid: 47ba24001280d0c4881851e81f7b8a5c, type: 2}
+  - waveName: Golf Anyone?
+    enemyCount: 1
+    spawnRate: 1
+    allowedEnemyTypes:
+    - {fileID: 11400000, guid: a25404a0fd2422446aab4c5c810f44bd, type: 2}
+  _enemyPrefab: {fileID: 5596461772913365370, guid: 2f4d3d90bcd2e244eb5aa83c61c2efd7, type: 3}
+  _spawnPoints:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  _timeBetweenWaves: 3
+  _rabbitHoleTarget: {fileID: 0}
+  _roamAreaBounds: {fileID: 0}
+  _bossPrefab: {fileID: 5596461772913365370, guid: baefa00da70748e459abec8303236f04, type: 3}
+  _miniBossData: {fileID: 11400000, guid: 77b9fdcc8c942ad448966f1e603a1a27, type: 2}
