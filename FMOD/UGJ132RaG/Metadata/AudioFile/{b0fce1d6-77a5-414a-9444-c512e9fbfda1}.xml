@@ -1,8 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <objects serializationModel="Studio.02.03.00">
 	<object class="AudioFile" id="{b0fce1d6-77a5-414a-9444-c512e9fbfda1}">
+		<property name="color">
+			<value>Red Light 1</value>
+		</property>
 		<property name="assetPath">
-			<value>carrot_gun.wav</value>
+			<value>Weapons/carrot_gun.wav</value>
 		</property>
 		<property name="frequencyInKHz">
 			<value>48</value>
