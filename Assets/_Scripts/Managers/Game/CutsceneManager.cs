@@ -32,8 +32,6 @@ public class CutsceneManager : MonoBehaviour
 
     private int _currentSlideIndex = 0;
     private InputSystem_Actions _inputActions;
-    private Vector2 _originalImagePosition;
-    private float _bobTimer = 0f;
 
     // ---------------------------------------------------------------------------
 
