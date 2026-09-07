@@ -10,10 +10,18 @@ public class BossAI : MonoBehaviour, IDamageable
     [SerializeField] private float _dashSpeedMultiplier = 3f;
     [SerializeField] private float _dashDuration = 1.5f;
 
+    [Header("Phase Visuals & VFX")]
+    [SerializeField] private Sprite _cartSprite;
+    [SerializeField] private Sprite _walkingSprite;
+    [SerializeField] private Sprite _cartAttackSprite;
+    [SerializeField] private Sprite _walkingAttackSprite;
+    [SerializeField] private GameObject _explosionPrefab;
+
     private Transform _rabbitHoleTarget;
     private BoxCollider2D _roamArea;
     private Rigidbody2D _rb;
     private SpriteRenderer _sr;
+    private ProceduralWalkAnimator _walkAnimator;
 
     private float _currentHealth;
     private float _minionTimer = 0f;
@@ -37,6 +45,9 @@ public class BossAI : MonoBehaviour, IDamageable
     {
         _rb = GetComponent<Rigidbody2D>();
         _sr = GetComponentInChildren<SpriteRenderer>();
+
+        // Get a reference to the walk animator
+        _walkAnimator = GetComponent<ProceduralWalkAnimator>();
     }
 
     public void InitialiseBoss(Transform target, BoxCollider2D roamArea)
@@ -49,6 +60,19 @@ public class BossAI : MonoBehaviour, IDamageable
         _isDrinkingCoffee = false;
         _isDefeated = false;
         _hasDrunkCoffee = false;
+
+        // Disable walking animation so cart drives smoothly
+        if (_walkAnimator != null)
+        {
+            _walkAnimator.enabled = false;
+        }
+
+        // Reset visual to Phase 1 Cart
+        if (_sr != null && _cartSprite != null)
+        {
+            _sr.sprite = _cartSprite;
+            _sr.color = Color.white;
+        }
 
         UIManager.Instance.ToggleBossHealthBar(true);
         UIManager.Instance.UpdateBossHealthBar(_currentHealth, _bossData.MaxHealth);
@@ -175,6 +199,25 @@ public class BossAI : MonoBehaviour, IDamageable
         _isPhaseTwo = false;
         _hasDrunkCoffee = true;
 
+        // Explode the cart using pooled prefab
+        if (_explosionPrefab != null)
+        {
+            PoolManager.Instance.SpawnFromPool(_explosionPrefab, transform.position, Quaternion.identity);
+        }
+
+        // Transform into walking state
+        if (_sr != null && _walkingSprite != null)
+        {
+            _sr.sprite = _walkingSprite;
+            _sr.color = Color.white;
+        }
+
+        // Enable walking animator
+        if (_walkAnimator != null)
+        {
+            _walkAnimator.enabled = true;
+        }
+
         // Trigger the heal sequence, and wait 2 seconds before resuming movement
         Invoke(nameof(FinishCoffee), _coffeeHealthDuration);
     }
@@ -227,7 +270,24 @@ public class BossAI : MonoBehaviour, IDamageable
     {
         if (collision.CompareTag("RabbitHole") && !_isDefeated)
         {
+            // Flash the blueprint attack frame
+            if (_sr != null && _cartAttackSprite != null)
+            {
+                _sr.sprite = _hasDrunkCoffee ? _walkingAttackSprite : _cartAttackSprite;
+            }
+
             VictoryConditionsManager.Instance.DamageForest(20f);
+
+            // Return to normal walk cycle after .5s 
+            Invoke(nameof(ResetToWalkSprite), 0.5f);
         }   
+    }
+
+    private void ResetToWalkSprite()
+    {
+        if (!_isDefeated && _sr != null)
+        {
+            _sr.sprite = _hasDrunkCoffee ? _walkingSprite : _cartSprite;
+        }
     }
 }

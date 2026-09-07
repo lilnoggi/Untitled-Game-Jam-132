@@ -12,16 +12,23 @@ public class WeaponManager : MonoBehaviour
     [SerializeField] private Transform _weaponHolder; // The central point the weapons orbit around
 
     [Header("Water Gun Setup")]
-    private Slider _waterSlider;
     [SerializeField] private float _maxWater = 100f;
     [SerializeField] private float _waterDrainRate = 25f;
     [SerializeField] private float _waterRefillRate = 45f; // Charge faster than drain
+    private Slider _waterSlider;
+
+    [Header("Laser Gun Setup")]
+    [SerializeField] private float _maxLaser = 100f;
+    [SerializeField] private float _laserDrainRate = 25f;
+    [SerializeField] private float _laserRefillRate = 45f; // Charge faster than drain
+    private Slider _laserSlider;
 
     [Header("UI References")]
     [SerializeField] private CrosshairController _crosshair;
 
     private GameObject[] _instantiatedWeapons;
     private float _currentWater;
+    private float _currentLaser;
     private int _currentWeaponIndex = 0;
     private InputSystem_Actions _inputActions;
     private Camera _mainCamera;
@@ -29,6 +36,7 @@ public class WeaponManager : MonoBehaviour
     // Firing state variables
     private bool _isFiring;
     private bool _isWaterDepleted = false;
+    private bool _isLaserDepleted = false;
     private float _timeSinceLastFire = 0f;
 
     // ----------------------------------------------------------
@@ -92,6 +100,13 @@ public class WeaponManager : MonoBehaviour
                 {
                     _waterSlider = weapon.GetComponentInChildren<Slider>(true);
                 }
+                else if (_availableWeapons[i].Type == WeaponType.LaserGun)
+                {
+                    _laserSlider = weapon.GetComponentInChildren<Slider>(true);
+                }
+                {
+                    
+                }
             }
         }
 
@@ -101,6 +116,13 @@ public class WeaponManager : MonoBehaviour
         {
             _waterSlider.maxValue = _maxWater;
             _waterSlider.value = _currentWater;
+        }
+
+        _currentLaser = _maxLaser;
+        if (_laserSlider != null)
+        {
+            _laserSlider.maxValue = _maxLaser;
+            _laserSlider.value = _currentLaser;
         }
 
         EquipWeapon(_currentWeaponIndex);
@@ -155,6 +177,10 @@ public class WeaponManager : MonoBehaviour
         if (currentData.Type == WeaponType.WaterGun)
         {
             HandleWaterGun(currentData);
+        }
+        else if (currentData.Type == WeaponType.LaserGun)
+        {
+            HandleLaserGun(currentData);
         }
         else
         {
@@ -217,6 +243,57 @@ public class WeaponManager : MonoBehaviour
         }
     }
 
+    private void HandleLaserGun(WeaponData data)
+    {
+        Transform vfx = _instantiatedWeapons[_currentWeaponIndex].transform.Find("Laser_VFX");
+        Transform firePoint = _instantiatedWeapons[_currentWeaponIndex].transform.Find("FirePoint");
+
+        // Reset the overheat lock when player lets go of the mouse
+        if (!_isFiring)
+        {
+            _isLaserDepleted = false;
+        }
+
+        // Lock gun if it is out of water
+        if (_currentLaser <= 0)
+        {
+            _isLaserDepleted = true;
+        }
+
+        bool isSpraying = _isFiring && _currentLaser > 0 && !_isLaserDepleted;
+
+        // Toggle VFX
+        if (vfx != null)
+        {
+            vfx.gameObject.SetActive(isSpraying);
+        }
+
+        if (isSpraying)
+        {
+            _currentLaser -= _laserDrainRate * Time.deltaTime;
+
+            // Still apply damage based on fire rate
+            if (_timeSinceLastFire >= data.FireRate)
+            {
+                _timeSinceLastFire = 0f;
+                if (firePoint != null)
+                {
+                    FireSplashWeapon(data, firePoint);
+                }
+            }
+        }
+        else
+        {
+            _currentLaser += _laserRefillRate * Time.deltaTime;
+        }
+
+        _currentLaser = Mathf.Clamp(_currentLaser, 0, _maxLaser);
+        if (_laserSlider != null)
+        {
+            _laserSlider.value = _currentLaser;
+        }
+    }
+
     /// <summary>
     /// Requests a projectile from the PoolManager and applies the active weapon's stats
     /// </summary>
@@ -235,7 +312,7 @@ public class WeaponManager : MonoBehaviour
         }
 
         // Branch based on type of weapon equipped
-        if (data.Type == WeaponType.WaterGun)
+        if (data.Type == WeaponType.WaterGun || data.Type == WeaponType.LaserGun)
         {
             FireSplashWeapon(data, firePoint);
         }
