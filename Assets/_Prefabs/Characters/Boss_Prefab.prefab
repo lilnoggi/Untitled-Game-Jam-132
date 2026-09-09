@@ -104,6 +104,7 @@ GameObject:
   - component: {fileID: 8412318579006084801}
   - component: {fileID: 7867120093967910641}
   - component: {fileID: 2100682213022218342}
+  - component: {fileID: 1058259011267459531}
   m_Layer: 8
   m_Name: Boss_Prefab
   m_TagString: Untagged
@@ -217,3 +218,26 @@ MonoBehaviour:
   _minionSpawnRate: 3
   _dashSpeedMultiplier: 3
   _dashDuration: 1.5
+  _cartSprite: {fileID: 21300000, guid: 187191b172424c64080b88174b978cee, type: 3}
+  _walkingSprite: {fileID: 21300000, guid: 756ef597b63a9dd46bf6bd6c0f43a82d, type: 3}
+  _cartAttackSprite: {fileID: 21300000, guid: 7a7cf0a8e516e4a4cacfadf15ce0149f, type: 3}
+  _walkingAttackSprite: {fileID: 8007791968108310611, guid: 6aca3c0a0a8560243a7b122d55ed161d, type: 3}
+  _explosionPrefab: {fileID: 7044379629310801423, guid: 8e55efb7fb4adfd4ebbe8ead98e9fa76, type: 3}
+--- !u!114 &1058259011267459531
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5596461772913365370}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8ba0a9681a58eb2418fda63f0170fb3d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::ProceduralWalkAnimator
+  _visualTransform: {fileID: 5845475388225088671}
+  _bobHeight: 0.25
+  _bobSpeed: 10
+  _maxRotationAngle: 5
+  _rotationSpeed: 5
+  _isMoving: 1
